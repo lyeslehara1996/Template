@@ -170,7 +170,7 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
-      "styleext": "scss"
+      "project": "material-dashboard-angular"
     },
     "@schematics/angular:directive": {
       "prefix": "app"

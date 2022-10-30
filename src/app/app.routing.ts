@@ -7,11 +7,11 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 
 const routes: Routes =[
   {
-    path: '',
+    path: 'Home',
     redirectTo: 'dashboard',
     pathMatch: 'full',
   }, {
-    path: '',
+    path: 'Admin',
     component: AdminLayoutComponent,
     children: [{
       path: '',
