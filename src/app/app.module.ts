@@ -9,6 +9,11 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AppPageHomeComponent } from './app-page-home/app-page-home.component';
 
+import { MatInputModule } from '@angular/material/input';
+import { MatPseudoCheckboxModule } from '@angular/material/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -18,6 +23,12 @@ import { AppPageHomeComponent } from './app-page-home/app-page-home.component';
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    MatInputModule,
+    MatPseudoCheckboxModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+
   ],
   declarations: [
     AppComponent,

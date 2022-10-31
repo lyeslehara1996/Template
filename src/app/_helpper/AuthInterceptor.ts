@@ -27,8 +27,6 @@ export class AuthInterceptor implements HttpInterceptor {
       return next.handle(authReq).pipe(catchError(error => {
    
         if (error instanceof HttpErrorResponse && !authReq.url.includes('auth/signin') && error.status === 401) {
-         // return this.handle401Error(authReq, next);
-          //this.isRefreshing = false;
               this.tokenService.signOut();
                this.router.navigateByUrl('/Signin');
                
@@ -38,9 +36,6 @@ export class AuthInterceptor implements HttpInterceptor {
     
       }));
     }
-    
- 
-  
     private addTokenHeader(request: HttpRequest<any>, token: string) {
 
        return request.clone({ headers: request.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token) });

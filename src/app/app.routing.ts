@@ -4,19 +4,33 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { AppPageHomeComponent } from './app-page-home/app-page-home.component';
+import { AuthGGuard } from './_Guards/auth-g.guard';
 
 const routes: Routes =[
   {
     path: 'Home',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
-  }, {
+    redirectTo: '',
+    component : AppPageHomeComponent
+  },
+  {
+    path: '',
+    component: AppPageHomeComponent,
+  },
+  {
+    path: 'Signin',
+    loadChildren : () =>
+    import('./login/login.module').then((s)=> s.LoginModule),
+  },
+
+  {
     path: 'Admin',
     component: AdminLayoutComponent,
     children: [{
       path: '',
       loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
-    }]
+    }],
+    canActivate: [AuthGGuard],
   }
 ];
 
@@ -24,9 +38,7 @@ const routes: Routes =[
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes,{
-       useHash: true
-    })
+    RouterModule.forRoot(routes)
   ],
   exports: [
   ],
