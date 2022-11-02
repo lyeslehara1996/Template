@@ -25,7 +25,7 @@ export class AuthGGuard implements CanActivate {
           return true;
         }
     }
-  
+ 
 
 
 }

@@ -31,7 +31,10 @@ export class AuthServiceService {
   public Login(Data:any) {
     return this.http.post(this.AUTH_API,Data);
   }
-  
+
+
+ 
 }
+
 
 

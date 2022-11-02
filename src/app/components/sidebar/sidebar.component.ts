@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageSService } from 'app/_services/storageService/storage-s.service';
+import { UserService } from 'app/_services/UserService/user.service';
+import { Router } from '@angular/router';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -26,7 +29,12 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-  constructor() { }
+  isLoggedIn = true;
+  roles: string[] = [];
+  username ?:string;
+  errorMessage = '';
+  users ?:any|null=null 
+  constructor( private router: Router, private storageSer:StorageSService,private userService:UserService) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
@@ -37,4 +45,17 @@ export class SidebarComponent implements OnInit {
       }
       return true;
   };
+
+
+
+  onLoggedout(){
+    if(this.isLoggedIn == true){
+        this.storageSer.signOut();
+        this.router.navigateByUrl('/Home');
+        this.isLoggedIn=false
+      }else{
+        this.storageSer.signOut();
+        this.router.navigate(['/Home']);
+      }
+}
 }
