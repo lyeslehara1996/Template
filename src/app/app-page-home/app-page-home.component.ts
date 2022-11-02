@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class AppPageHomeComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
-  errorMessage ?:string[];
+  errorMessage !:string[];
   roles: string[] = [];
   submitted:boolean = false;
   constructor(private authService:AuthServiceService,private storageSService:StorageSService ,private router:Router) { }
@@ -43,10 +43,7 @@ export class AppPageHomeComponent implements OnInit {
   }
 
     
-  public hasError = (controlName: string, errorName: string) => {
-    return this.LoginForm.controls[controlName].hasError(errorName);
-  };
-
+ 
 
   
   onSubmit() {
@@ -61,9 +58,6 @@ this.submitted= true;
         console.log(this.storageSService.getUser())
         this.isLoginFailed ===false;
         this.isLoggedIn === true;
- 
-    
-       
         if(this.storageSService.getToken() && this.storageSService.isLoggedIn() === true ){
           this.router.navigateByUrl('/Admin')
   
@@ -72,16 +66,25 @@ this.submitted= true;
       
       },
       (error)=>{
-
+     
+       this.errorMessage = error.error
+      console.log(this.errorMessage)
         this.isLoginFailed === true;
         this.isLoggedIn === false;
       
       }
     )
   }
+
  
   reloadPage(): void {
     window.location.reload();
   }
+
+
+
+  public hasError = (controlName: string, errorName: string) => {
+    return this.LoginForm.controls[controlName].hasError(errorName);
+  };
 
 }
