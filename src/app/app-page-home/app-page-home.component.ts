@@ -55,17 +55,19 @@ this.submitted= true;
     
     this.authService.Login(this.LoginForm.value).subscribe(
       (Response:any)=>{
-      console.log(Response);
+   
         this.storageSService.saveToken(Response.jwtAccessTocken);
         this.storageSService.saveUser(Response);
         console.log(this.storageSService.getUser())
         this.isLoginFailed ===false;
         this.isLoggedIn === true;
-        this.roles = this.storageSService.getUser().roles;
+ 
     
+       
         if(this.storageSService.getToken() && this.storageSService.isLoggedIn() === true ){
           this.router.navigateByUrl('/Admin')
-          this.reloadPage();
+  
+          
         }
       
       },

@@ -6,7 +6,7 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { DashboardComponent } from 'app/admin/dashboard/dashboard.component';
-import { IconsComponent } from 'app/admin/components/icons/icons.component';
+import { IconsComponent } from 'app/admin/icons/icons.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
