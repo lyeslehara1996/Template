@@ -135,11 +135,11 @@ export class NavbarComponent implements OnInit {
     onLoggedout(){
         if(this.isLoggedIn == true){
             this.storageSer.signOut();
-            this.router.navigateByUrl('/Signin');
+            this.router.navigateByUrl('/Home');
             this.isLoggedIn=false
           }else{
             this.storageSer.signOut();
-            this.router.navigate(['/Signin']);
+            this.router.navigate(['/Home']);
           }
     }
 }

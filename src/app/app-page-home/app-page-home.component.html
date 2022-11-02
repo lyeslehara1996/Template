@@ -11,17 +11,24 @@
                     <p class="mb-5">We're working hard to finish the development of this site. Sign up below to receive updates and to be notified when we launch!</p>
    
          
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                        <form id="contactForm"  [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
                             <!-- Email address input-->
                             <div class="row input-group-newsletter d-flex flex-column">
                                 <div class="col mb-2">
-                                    <input class="form-control" id="Username" type="text" placeholder="Enter un Username" aria-label="Enter un Username" /></div>
-                                <div class="col">
-                                    <input class="form-control" id="Password" type="Password" placeholder="Enter Password " aria-label="Enter Password " />
+                                    <input class="form-control" id="Username" type="text" placeholder="Enter un Username" aria-label="Enter un Username" formControlName="username" name="username" ngModel  />
+                                    <mat-error *ngIf="submitted && hasError('username', 'required')">username is required</mat-error>
+                                    <mat-error *ngIf="submitted && hasError('username', 'maxlength')">You have more than 10 characters</mat-error>
+                                    <mat-error *ngIf="submitted && hasError('username', 'minlength')">Your username must be more than 6 characters</mat-error>
                                 </div>
-                                <div class="col-auto mt-2"><button class="btn btn-primary" routerLink="Signin" >Signin</button></div>
+                                <div class="col">
+                                    <input class="form-control" id="Password" type="Password" placeholder="Enter Password " aria-label="Enter Password " name="password" formControlName="password" ngModel />
+                                    <mat-error *ngIf="submitted && hasError('password', 'required')">password is required</mat-error>
+                                </div>
+                                <div class="col-auto mt-2">
+                                    <button class="btn btn-primary" routerLink="Signin"  type="submit"  [disabled]="LoginForm.invalid">Signin</button>
+                                </div>
                             </div>
-                         
+                                     
                            </form>
                
             
@@ -30,8 +37,6 @@
                 </div>
             </div>
         </div>
-        <!-- Social Icons-->
-        <!-- For more icon options, visit https://fontawesome.com/icons?d=gallery&p=2&s=brands-->
         <div class="social-icons">
             <div class="d-flex flex-row flex-lg-column justify-content-center align-items-center h-100 mt-3 mt-lg-0">
                 <a class="btn btn-dark m-3" href="#!"><i class="fa fa-twitter"></i></a>

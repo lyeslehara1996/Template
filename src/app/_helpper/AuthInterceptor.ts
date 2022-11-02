@@ -28,7 +28,7 @@ export class AuthInterceptor implements HttpInterceptor {
    
         if (error instanceof HttpErrorResponse && !authReq.url.includes('auth/signin') && error.status === 401) {
               this.tokenService.signOut();
-               this.router.navigateByUrl('/Signin');
+               this.router.navigateByUrl('/Home');
                
         }
 

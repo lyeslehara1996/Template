@@ -17,11 +17,7 @@ const routes: Routes =[
     path: '',
     component: AppPageHomeComponent,
   },
-  {
-    path: 'Signin',
-    loadChildren : () =>
-    import('./login/login.module').then((s)=> s.LoginModule),
-  },
+
 
   {
     path: 'Admin',
