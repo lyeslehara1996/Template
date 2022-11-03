@@ -24,23 +24,15 @@
                                     <input class="form-control" id="Password" type="Password" placeholder="Enter Password " aria-label="Enter Password " name="password" formControlName="password" ngModel />
                                     <mat-error *ngIf="submitted && hasError('password', 'required')">password is required</mat-error>
                                 </div>
-                                <div class="col-auto mt-2 d-flex flex-row">
+                                <div class="col-auto mt-2 d-flex flex-row  ">
 
-                                    <button class="btn btn-primary" routerLink="Signin"  type="submit"  [disabled]="LoginForm.invalid">Signin</button>
+                                    <button class="btn btn-primary"   type="submit"   [disabled]="LoginForm.invalid">Signin</button>
+                                    <div *ngIf="!isLoggedIn && submitted" class="alert alert-danger ml-2 " role="alert" >
+                                     {{ this.errorMessage }}
+                                       </div>
                                 </div>
                             </div>
-                            <div *ngIf="submitted && !isLoginFailed" class="alert alert-danger mt-5" role="alert" >
-                             {{ this.errorMessage }}
-                               </div>
 
-
-                               <div *ngIf="submitted && !isLoginFailed"  class="alert ng-isolate-scope alert-info" ng-class="['alert-' + (type || 'warning'), closeable ? 'alert-dismissible' : null]" role="alert" type="info" dismiss-on-timeout="10000">
-                                <button ng-show="closeable" type="button" class="close ng-hide" ng-click="close($e)">
-                                    <span aria-hidden="true">×</span>
-                                    <span class="sr-only">Close</span>
-                                </button>
-                                <div ng-transclude=""><span class="ng-scope">       {{ this.errorMessage }}</span></div>
-                            </div>
                            </form>
                
             

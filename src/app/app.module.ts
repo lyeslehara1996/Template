@@ -12,6 +12,8 @@ import { MatPseudoCheckboxModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -25,6 +27,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot({}, {}),
 
   ],
   declarations: [

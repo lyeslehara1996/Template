@@ -28,8 +28,8 @@ export class AuthServiceService {
   constructor(private router:Router, private storageservice:StorageSService  , private http: HttpClient,private userservice:UserService) {  }
 
  
-  public Login(Data:any) {
-    return this.http.post(this.AUTH_API,Data);
+  public Login(username:string, password:string) {
+    return this.http.post(this.AUTH_API,{username,password});
   }
 
 
