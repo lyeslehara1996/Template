@@ -7,6 +7,8 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { DashboardComponent } from 'app/admin/dashboard/dashboard.component';
 import { IconsComponent } from 'app/admin/icons/icons.component';
+import { AuthPermissionsGuard } from 'app/_Guards/auth-permissions.guard';
+import { PortfeuilleCreditComponent } from 'app/admin/portfeuille-credit/portfeuille-credit.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -51,12 +53,17 @@ export const AdminLayoutRoutes: Routes = [
     //         component: UpgradeComponent
     //     }]
     // }
-    { path: '',       component: DashboardComponent },
+    { path: '',       component: DashboardComponent},
     { path: 'Dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component:UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
-    { path: 'typography',     component: TypographyComponent },
-    { path: 'icons',          component: IconsComponent },
+    { path: 'typography',     component: TypographyComponent, canActivate : [AuthPermissionsGuard],
+    data :{
+      expectedPermission:['ConsulterRessources']
+    } },
+  
+    { path: 'PortefeuilleCredit',          component: PortfeuilleCreditComponent  },
+    { path: 'icons',          component: IconsComponent  },
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },

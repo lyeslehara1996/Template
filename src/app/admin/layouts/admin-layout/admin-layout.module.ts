@@ -38,7 +38,7 @@ import { DashboardComponent } from 'app/admin/dashboard/dashboard.component';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-    UserProfileComponent
+    UserProfileComponent,
   ]
 })
 

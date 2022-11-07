@@ -9,11 +9,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { ComponentsModule } from './components/components.module';
+import { PortfeuilleCreditComponent } from './portfeuille-credit/portfeuille-credit.component';
 
 
 @NgModule({
   declarations: [
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    PortfeuilleCreditComponent,
+  
   ],
   imports: [
     CommonModule,
