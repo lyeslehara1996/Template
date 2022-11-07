@@ -12,13 +12,17 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
     { path: '/Admin/Dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-    { path: '/Admin/user-profile', title: 'User Profile',  icon:'person', class: '' },
+  /*  { path: '/Admin/user-profile', title: 'User Profile',  icon:'person', class: '' },
     { path: '/Admin/table-list', title: 'Table List',  icon:'content_paste', class: '' },
     { path: '/Admin/typography', title: 'Typography',  icon:'library_books', class: '' },
     { path: '/Admin/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
     { path: '/Admin/maps', title: 'Maps',  icon:'location_on', class: '' },
     { path: '/Admin/notifications', title: 'Notifications',  icon:'notifications', class: '' },
     { path: '/Admin/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
+    { path: '/Admin/analysepotefeuildirecte', title: 'Analyse du portefeuille des engagements directs',  icon:'', class: '' },
+    { path: '/Admin/analysepotefeuilindirecte', title: 'Analyse du portefeuille des engagements indirects',  icon:'', class: '' },
+    { path: '/Admin/analysepotefeuilindirecte', title: 'Analyse des impayés et créances douteuses ',  icon:'', class: '' },
+    { path: '/Admin/analysepotefeuilindirecte', title: 'Analyse des actions de recouvrement ',  icon:'', class: '' },*/
 ];
 
 @Component({
