@@ -4,6 +4,7 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { AppPageHomeComponent } from './app-page-home/app-page-home.component';
 import { AuthGGuard } from './_Guards/auth-g.guard';
+import { AuthPermissionsGuard } from './_Guards/auth-permissions.guard';
 
 const routes: Routes =[
   {
@@ -22,6 +23,7 @@ const routes: Routes =[
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
     canActivate: [AuthGGuard],
+    
   },
 ];
 

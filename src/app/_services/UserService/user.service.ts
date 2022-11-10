@@ -27,8 +27,8 @@ export class UserService {
   };
 //get users methode 
 
-  public getAllUsers():Observable<HttpEvent<AppUser[]>> {
-    return this.httpClient.get<AppUser[]>(this.PATH_API+"user",this.httpOptions);
+  public getAllUsers()
+  {    return this.httpClient.get<AppUser[]>(this.PATH_API+"user");
   }
 
   //add Users methode

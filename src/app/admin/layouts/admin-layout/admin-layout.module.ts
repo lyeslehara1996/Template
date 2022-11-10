@@ -16,6 +16,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import { DashboardComponent } from 'app/admin/dashboard/dashboard.component';
+import { authInterceptorProviders } from 'app/_helpper/AuthInterceptor';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import { DashboardComponent } from 'app/admin/dashboard/dashboard.component';
     NotificationsComponent,
     UpgradeComponent,
     UserProfileComponent,
-  ]
+  ],
+  providers: [authInterceptorProviders],
 })
 
 export class AdminLayoutModule {}

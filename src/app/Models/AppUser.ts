@@ -7,4 +7,6 @@ email ?:string;
 password ?: string;
 permissions ?: string[];
 jwtAccessToken ?: string;
+
+
 }

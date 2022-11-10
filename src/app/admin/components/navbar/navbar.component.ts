@@ -4,6 +4,7 @@ import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common'
 import { Router } from '@angular/router';
 import { UserService } from 'app/_services/UserService/user.service';
 import { StorageSService } from 'app/_services/storageService/storage-s.service';
+import { title } from 'process';
 
 @Component({
   selector: 'app-navbar',
@@ -11,6 +12,7 @@ import { StorageSService } from 'app/_services/storageService/storage-s.service'
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+    
     private listTitles: any[];
     location: Location;
       mobile_menu_visible: any = 0;
@@ -30,6 +32,7 @@ export class NavbarComponent implements OnInit {
 
     ngOnInit(){
       this.listTitles = ROUTES.filter(listTitle => listTitle);
+console.log(this.listTitles)
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
       this.router.events.subscribe((event) => {
@@ -119,16 +122,18 @@ export class NavbarComponent implements OnInit {
 
     getTitle(){
       var titlee = this.location.prepareExternalUrl(this.location.path());
+
       if(titlee.charAt(0) === '#'){
           titlee = titlee.slice( 1 );
       }
-
-      for(var item = 0; item < this.listTitles.length; item++){
-          if(this.listTitles[item].path === titlee){
-              return this.listTitles[item].title;
+      let routes = this.listTitles
+      for(var item = 0; item < routes.length; item++){
+          if(routes[item].path === titlee ){
+              return routes[item].title;
           }
-      }
-      return 'Dashboard';
+          if (routes[item].children)  routes = [...routes, ...routes[item].children]
+        }
+      return '';
     }
 
 

@@ -59,11 +59,29 @@
     </ul>
   </div>
     <ul class="nav">
-        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
-            <a class="nav-link" [routerLink]="[menuItem.path]">
+        <li routerLinkActive="active"  class="{{menuItem.class}} nav-item" *ngFor="let menuItem of getRoutes(); " >
+            <a class="nav-link" [routerLink]="[menuItem.path]"   *ngIf="menuItem.children?.length<1" >
                 <i class="material-icons">{{menuItem.icon}}</i>
                 <p>{{menuItem.title}}</p>
             </a>
+         
+            <a class="nav-link submenu-toggle"  *ngIf="menuItem.children?.length>1"  aria-expanded="false">
+                <i class="material-icons" >{{menuItem.icon}}</i>
+                <p   (click)="onclicksubmenu($event)">{{menuItem.title}}</p>
+               <span class="material-icons arrow-down">
+                expand_more
+                </span>
+             </a>
+
+             <div class="collapse submenu" *ngIf="menuItem.children?.length>0">
+               <ul class="nav flex-column sub-menu">
+                 <li class="nav-item" routerLinkActive="active" *ngFor="let sub of menuItem.children">
+                   <a class="nav-link" [routerLink]="[sub.path]">
+                     {{sub.title}}
+                   </a>
+                 </li>              
+               </ul>
+             </div>
         </li>
     </ul>
 </div>

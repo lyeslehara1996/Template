@@ -11,6 +11,13 @@ import { filter, Subscription } from 'rxjs';
   styleUrls: ['./admin-layout.component.scss']
 })
 export class AdminLayoutComponent implements OnInit {
+    protected themeColorHex = {
+        purple: '#9368E9',
+        azure: '#00bcd4',
+        green: '#18ce0f',
+        orange: '#f96332',
+        danger: '#f44336',
+    }
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
@@ -29,6 +36,7 @@ export class AdminLayoutComponent implements OnInit {
       }
       const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
       const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
+      const elemNavBar = <HTMLElement>document.querySelector('.navbar .navbar');
 
       this.location.subscribe((ev:PopStateEvent) => {
           this.lastPoppedUrl = ev.url;
@@ -56,6 +64,7 @@ export class AdminLayoutComponent implements OnInit {
 
       const window_width = $(window).width();
       let $sidebar = $('.sidebar');
+      let $navbarComponents = $('.navbar')
       let $sidebar_responsive = $('body > .navbar-collapse');
       let $sidebar_img_container = $sidebar.find('.sidebar-background');
 
@@ -79,7 +88,8 @@ export class AdminLayoutComponent implements OnInit {
           }
       });
 
-      $('.fixed-plugin .badge').click(function(){
+      $('.fixed-plugin .badge').click(function(elem){
+        console.log(elem)
           let $full_page_background = $('.full-page-background');
 
 
@@ -94,6 +104,9 @@ export class AdminLayoutComponent implements OnInit {
 
           if($sidebar_responsive.length != 0){
               $sidebar_responsive.attr('data-color',new_color);
+          }
+          if($navbarComponents){
+            
           }
       });
 
@@ -152,6 +165,13 @@ export class AdminLayoutComponent implements OnInit {
           bool = true;
       }
       return bool;
+  }
+
+  
+  changeThemeColor(event) {
+    let color = event.target.getAttribute('data-color')
+    let root = document.documentElement
+    root.style.setProperty('--theme-color', this.themeColorHex[color])
   }
 
 }

@@ -19,6 +19,7 @@ export class AuthGGuard implements CanActivate {
 
         if(authenticated == false){
           this.router.navigateByUrl("/Home");
+          alert("n'est pas authoriser. Authentifier D'abord !")
           return false;
 
         }else{

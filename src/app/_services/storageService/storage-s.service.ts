@@ -64,4 +64,32 @@ export class StorageSService {
 
     return false;
   }
+
+  /**
+   * userIsAdmin
+   */
+  public userIsAdmin(): boolean {
+    return this.getUser().roles.name.toLowerCase() === 'admin'
+  }
+
+/**
+ * hasRole
+ */
+  public userHasRole(role:string) : boolean  {
+    let roles = this.getUser().roles.name.toLowerCase();
+    if(role.toLowerCase() === roles ){
+      
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  /**
+   * userHasPermission
+permission:string : boolean  */
+  public userHasPermission(permission:string): boolean {
+    if (this.getUser().permissions.include)
+    return false
+  }
 }

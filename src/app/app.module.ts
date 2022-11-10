@@ -14,6 +14,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { authInterceptorProviders } from './_helpper/AuthInterceptor';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -27,8 +28,6 @@ import { StoreModule } from '@ngrx/store';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
-    EffectsModule.forRoot([]),
-    StoreModule.forRoot({}, {}),
 
   ],
   declarations: [
@@ -36,7 +35,7 @@ import { StoreModule } from '@ngrx/store';
     AppPageHomeComponent,
 
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
