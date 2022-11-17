@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StorageSService } from 'app/_services/storageService/storage-s.service';
 import { UserService } from 'app/_services/UserService/user.service';
 import {  Router } from '@angular/router';
+import { User } from 'app/Models/User.model';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -31,7 +32,7 @@ export const ROUTES: RouteInfo[] = [
           },
          {
               path: '/Admin/GestionDesPermission',
-              title:'Gestion Des Roles'
+              title:'Gestion Des Permissions Utilisateurs '
           },
         
         ]
@@ -171,6 +172,8 @@ onclicksubmenu(event: any){
 }
 
 getRoutes() {
+  // let user = new User(this.storageSer.getUser());
+  // let IsAdmine = user.hasRole('admin')
   let isAdmin = this.storageSer.userIsAdmin()
   return ROUTES.filter(item => !isAdmin && item.forAdmin ? false : true )
 }

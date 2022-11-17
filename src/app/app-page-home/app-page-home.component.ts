@@ -3,10 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthServiceService } from 'app/_services/AuthService/auth-service.service';
 import { StorageSService } from 'app/_services/storageService/storage-s.service';
 import { Router } from '@angular/router';
-import{ Observable } from 'rxjs';
 
 
-import { AppUser } from '../Models/AppUser'
 
 declare var $: any;
 @Component({
@@ -18,20 +16,12 @@ export class AppPageHomeComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage !:string[];
-  roles: string[] = [];
   submitted:boolean = false;
-  errorMessages ?:string;
-
-  user: AppUser ;
-  getState: Observable<any>;
-
 
 
   constructor(private authService:AuthServiceService,private storageSService:StorageSService ,private router:Router) {}
    
   public LoginForm!: FormGroup;
-  form : any
-  align :any;
   ngOnInit(): void {
  
     this.LoginForm = new FormGroup({
@@ -44,10 +34,8 @@ export class AppPageHomeComponent implements OnInit {
     });
 
     if (this.storageSService.getToken() && this.storageSService.isLoggedIn() === true) {
-     console.log(this.storageSService.getUser().permissions)
       this.isLoggedIn === true;
       this.isLoginFailed === false;
-      this.roles = this.storageSService.getUser().roles;
       this.router.navigateByUrl('/Admin');
     }else{
       this.storageSService.signOut();

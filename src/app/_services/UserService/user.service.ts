@@ -27,30 +27,96 @@ export class UserService {
   };
 //get users methode 
 
-  public getAllUsers()
-  {    return this.httpClient.get<AppUser[]>(this.PATH_API+"user");
+  public getAllUsers():Observable<HttpEvent<AppUser[]>>
+  {    return this.httpClient.get<AppUser[]>(this.PATH_API+"user",this.httpOptions);
   }
 
-  //add Users methode
+  public getUser(id:number):Observable<HttpEvent<AppUser[]>>
+  {    return this.httpClient.get<AppUser[]>(this.PATH_API+`/user${id}`,this.httpOptions);
+  }
+
   public AddUsers( appUser:Object) {
     return this.httpClient.get(this.PATH_API+"Adduser",appUser);
   }
 
+  public UpdateUsers(){
+
+    
+  }
+
+  public DeleteUser(user:AppUser){
+return this.httpClient.delete(this.PATH_API+`user/delete/${user.id}`, this.httpOptions)
+  }
+
+
 
   //get roles methode 
-  public getRoles(url:any):Observable <any> {
-    return this.httpClient.get(this.PATH_API+"Roles");
+
+  
+  public getAllRoles(url:any) {
+    return this.httpClient.get(this.PATH_API+"roles",this.httpOptions);
   }
 
-  // add role methode 
-  public AddRoles(url:any):Observable <any> {
-    return this.httpClient.get(this.PATH_API+"AddRole");
+    public getRole(url:any) {
+    return this.httpClient.get(this.PATH_API+"roles",this.httpOptions);
   }
 
-  //add role to user methode 
-
-
+  public UpdateRole(url:any) {
+    return this.httpClient.get(this.PATH_API+"roles",this.httpOptions);
+  }
+  public DeleteRole(url:any) {
+    return this.httpClient.get(this.PATH_API+"roles",this.httpOptions);
+  }
 
 
   
+  
+
+  // add  methode  of Permissions
+  public getAllPermissions(url:any) {
+    return this.httpClient.get(this.PATH_API+"Permissions",this.httpOptions);
+  }
+
+    public getPermission(url:any) {
+    return this.httpClient.get(this.PATH_API+"Permissions",this.httpOptions);
+  }
+
+  public UpdatePermission(url:any) {
+    return this.httpClient.get(this.PATH_API+"Permissions",this.httpOptions);
+  }
+  public DeletePermission(url:any) {
+    return this.httpClient.get(this.PATH_API+"Permissions",this.httpOptions);
+  }
+
+
+
+  //add Ressource and privilege methode 
+
+  public getAllprivileges(url:any) {
+    return this.httpClient.get(this.PATH_API+"privileges",this.httpOptions);
+  }
+
+    public getprivilege(url:any) {
+    return this.httpClient.get(this.PATH_API+"privileges",this.httpOptions);
+  }
+
+
+  public getAllRessources(url:any) {
+    return this.httpClient.get(this.PATH_API+"Ressources",this.httpOptions);
+  }
+
+    public getRessource(url:any) {
+    return this.httpClient.get(this.PATH_API+"Ressources",this.httpOptions);
+  }
+
+
+//AddPermissionsTorole Methode
+
+
+  
+public AddPermissionToRole(url:any) {
+  return this.httpClient.get(this.PATH_API+"Ressources",this.httpOptions);
+}
+
+
 }
