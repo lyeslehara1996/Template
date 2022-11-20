@@ -23,6 +23,8 @@ import { ListeUtilisateursComponent } from "app/admin/Gestion-role-et-utilisateu
 import { AjouterDesUtilisateusComponent } from "app/admin/Gestion-role-et-utilisateur/gestion-utilisateur/ajouter-des-utilisateus/ajouter-des-utilisateus.component";
 import { ModifierUtilisateursComponent } from "app/admin/Gestion-role-et-utilisateur/gestion-utilisateur/modifier-utilisateurs/modifier-utilisateurs.component";
 import { HasPermissionGuardChild } from "app/_Guards/has-permission-child.guard";
+import { PortefeuilDirectComponent } from "app/admin/risque-credit/analyse-portfeuille/portefeuil-direct/portefeuil-direct.component";
+import { PortefeuilIndirectComponent } from "app/admin/risque-credit/analyse-portfeuille/analyse-portfeuille-in-direct/portefeuil-indirect/portefeuil-indirect.component";
 
 export const AdminLayoutRoutes: Routes = [
   {
@@ -77,6 +79,15 @@ export const AdminLayoutRoutes: Routes = [
         path: "AnalysePortfeuille",
         component: AnalysePortfeuilleComponent,
         children: [
+          {
+            path: "GraphePortfeuilledirect",
+            component: PortefeuilDirectComponent,
+          },
+
+          {
+            path: "GraphePortfeuilleindirect",
+            component: PortefeuilIndirectComponent,
+          },
           {
             path: "Portfeuilledirect",
             component: AnalysePortfeuilleDirectComponent,

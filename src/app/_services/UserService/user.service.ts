@@ -11,7 +11,7 @@ import { StorageSService } from '../storageService/storage-s.service';
 })
 export class UserService {
 
-  PATH_API='http://localhost:8085/api/';
+  PATH_API='http://localhost:8082/api/';
 
 
  
@@ -31,6 +31,7 @@ export class UserService {
   {    return this.httpClient.get<AppUser[]>(this.PATH_API+"user",this.httpOptions);
   }
 
+  
   public getUser(id:number):Observable<HttpEvent<AppUser[]>>
   {    return this.httpClient.get<AppUser[]>(this.PATH_API+`/user${id}`,this.httpOptions);
   }
@@ -51,8 +52,6 @@ return this.httpClient.delete(this.PATH_API+`user/delete/${user.id}`, this.httpO
 
 
   //get roles methode 
-
-  
   public getAllRoles(url:any) {
     return this.httpClient.get(this.PATH_API+"roles",this.httpOptions);
   }

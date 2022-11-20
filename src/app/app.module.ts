@@ -17,6 +17,17 @@ import { StoreModule } from '@ngrx/store';
 import { authInterceptorProviders } from './_helpper/AuthInterceptor';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ConfirmationPasswordComponent } from './confirmation-password/confirmation-password.component';
+
+import { PortefeuilIndirectComponent } from './admin/risque-credit/analyse-portfeuille/analyse-portfeuille-in-direct/portefeuil-indirect/portefeuil-indirect.component';
+import { EngagementsComponent } from './admin/risque-credit/analyse-portfeuille/analyse-portfeuille-in-direct/portefeuil-indirect/engagements/engagements.component';
+import { EvolutionComponent } from './admin/risque-credit/analyse-portfeuille/analyse-portfeuille-in-direct/portefeuil-indirect/evolution/evolution.component';
+import { CreditNetComponent } from './admin/risque-credit/analyse-portfeuille/portefeuil-direct/credit-net/credit-net.component';
+import { ParTypeEngagementComponent } from './admin/risque-credit/analyse-portfeuille/portefeuil-direct/par-type-engagement/par-type-engagement.component';
+import { EvolutionDirectComponent } from './admin/risque-credit/analyse-portfeuille/portefeuil-direct/evolution-direct/evolution-direct.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { TesttailwindComponent } from './testtailwind/testtailwind.component';
+import { PortefeuilDirectComponent } from './admin/risque-credit/analyse-portfeuille/portefeuil-direct/portefeuil-direct.component';
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -37,6 +48,14 @@ import { ConfirmationPasswordComponent } from './confirmation-password/confirmat
     AppPageHomeComponent,
     ForgotPasswordComponent,
     ConfirmationPasswordComponent,
+    PortefeuilIndirectComponent,
+    EngagementsComponent,
+    EvolutionComponent,
+    PortefeuilDirectComponent,
+    CreditNetComponent,
+    ParTypeEngagementComponent,
+    EvolutionDirectComponent,
+    TesttailwindComponent,
 
   ],
   providers: [authInterceptorProviders],

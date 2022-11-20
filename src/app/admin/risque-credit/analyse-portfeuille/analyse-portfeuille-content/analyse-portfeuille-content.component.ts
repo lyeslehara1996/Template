@@ -4,6 +4,7 @@ import { AnalysePortfeuilleDirectComponent } from '../analyse-portfeuille-direct
 import { AnalysePortfeuilleInDirectComponent } from '../analyse-portfeuille-in-direct/analyse-portfeuille-in-direct.component';
 import { CreationDouteuseComponent } from '../creation-douteuse/creation-douteuse.component';
 import { DurationComponent } from '../durations/duration.component';
+import { PortefeuilDirectComponent } from '../portefeuil-direct/portefeuil-direct.component';
 
 @Component({
   selector: 'app-analyse-portfeuille-content',
@@ -13,6 +14,7 @@ import { DurationComponent } from '../durations/duration.component';
 export class AnalysePortfeuilleContentComponent implements OnInit {
 
   protected menuItems = [
+    
     {
       menuItem: 'Portfeuille direct',
       path: 'Portfeuilledirect',
