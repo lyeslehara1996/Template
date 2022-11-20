@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ForgotPasswordService } from 'app/_services/ForgotPasswordService/forgot-password.service';
 
 
@@ -12,18 +12,30 @@ import { ForgotPasswordService } from 'app/_services/ForgotPasswordService/forgo
 export class ConfirmationPasswordComponent implements OnInit {
   errorMessage !:string[];
   submitted:boolean = false;
-  constructor(private forgotPasswordService:ForgotPasswordService,private route: Router ) { }
+  token ?:string;
+  constructor(private forgotPasswordService:ForgotPasswordService,private route: Router,private activateRoute:ActivatedRoute ) {
+    this.token = this.activateRoute.snapshot.params['token'];
+   }
   public ResetPasswordForm?: FormGroup | null= null;
   ngOnInit(): void {
 
-    // this.ResetPasswordForm = new FormGroup({
-    //   password: new FormControl('', [
-    //     Validators.required,
-    //   ]),
-    //   confirmpassword: new FormControl('', [
-    //     Validators.required,
-    //   ]),
-    // });
+    this.forgotPasswordService.CheckResetPasswordToken(this.token).subscribe(
+      {
+        error: (err) => {
+          this.route.navigateByUrl('/')
+        },
+      }
+    )
+    
+
+    this.ResetPasswordForm = new FormGroup({
+      password: new FormControl('', [
+        Validators.required,
+      ]),
+      confirmPassword: new FormControl('', [
+        Validators.required,
+      ]),
+    });
 
 
 
@@ -51,5 +63,28 @@ export class ConfirmationPasswordComponent implements OnInit {
        
     });
   }
+
+
+  onSubmit(){
+
+    this.submitted=true;
+    if(this.ResetPasswordForm?.invalid) return;
+        this.forgotPasswordService.ResetPasswordtoken(this.token,this.ResetPasswordForm?.value['password'],this.ResetPasswordForm.value['confirmPassword']).subscribe({
+          next: data => {
+            console.log(data)
+            alert(" Password Updated ");
+            this.route.navigateByUrl("/")
+          },
+          error: err => {
+            console.log('from here', err)
+          }
+        });
+     
+     }
+
+     public hasError = (controlName: string, errorName: string) => {
+      return this.ResetPasswordForm.controls[controlName].hasError(errorName);
+    };
+  
 
 }

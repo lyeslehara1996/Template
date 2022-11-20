@@ -29,7 +29,7 @@
                                     <button class="btn btn-primary"   type="submit"   [disabled]="LoginForm.invalid">Signin</button>
                                     <a class="ml-5 mt-10 text-primary" routerLink="/ForgotPassword">Mot de passe oublié ?</a>
                                 </div>
-                                <div *ngIf="!isLoggedIn && submitted" class="alert alert-danger mt-5 center" role="alert" >
+                                <div *ngIf="errorMessage !== null" class="alert alert-danger mt-5 center" role="alert" >
                                  {{ this.errorMessage }}
                                    </div>
                             </div>

@@ -1,7 +1,6 @@
 export enum ProductActionsTypes {
 
     GETALLUSERSS = "[AppUser] GET ALL Users",
-
     FORGOTPASSWORD = "ForgotPassword POST FORGOT PASSWORD",
 }
 

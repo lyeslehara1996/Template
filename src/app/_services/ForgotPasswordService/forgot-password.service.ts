@@ -17,9 +17,13 @@ export class ForgotPasswordService {
   {    return this.httpClient.post <ForgotPassword> (this.PATH_API+"ForgotPassword",email);
   }
 
-  // public ResetPasswordtoken(token:string,password:string,confirmationPassword:string)
-  // {    return this.httpClient.post (this.PATH_API+`/ResetPAssword${token}`,{password,confirmationPassword});
-  // }
+  public ResetPasswordtoken(token:string,password:string,confirmPassword:string)
+  {    return this.httpClient.post (this.PATH_API+`ResetPassword/${token}`,{password,confirmPassword});
+  }
+
+  public CheckResetPasswordToken(token:string) {
+    return this.httpClient.get(this.PATH_API+`CheckResetPassword/${token}`);
+  }
 
 
 }

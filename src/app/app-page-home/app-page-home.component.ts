@@ -15,8 +15,9 @@ declare var $: any;
 export class AppPageHomeComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
-  errorMessage !:string[];
+  errorMessage :string|null = null;
   submitted:boolean = false;
+
 
 
   constructor(private authService:AuthServiceService,private storageSService:StorageSService ,private router:Router) {}
@@ -60,12 +61,12 @@ this.submitted= true;
     
     this.authService.Login(this.LoginForm.value['username'],this.LoginForm.value['password']).subscribe(
       (Response:any)=>{
-   
+        this.errorMessage = null
+        this.isLoggedIn = true
+        this.isLoginFailed = false
         this.storageSService.saveToken(Response.jwtAccessTocken);
         this.storageSService.saveUser(Response);
         console.log(this.storageSService.getUser())
-        this.isLoginFailed ===false;
-        this.isLoggedIn === true;
         if(this.storageSService.getToken() && this.storageSService.isLoggedIn() === true ){
           this.router.navigateByUrl('/Admin')
   
@@ -77,8 +78,8 @@ this.submitted= true;
      
        this.errorMessage = error.error
       console.log(this.errorMessage)
-        this.isLoginFailed === true;
-        this.isLoggedIn === false;
+        this.isLoginFailed = true;
+        this.isLoggedIn = false;
       
 
       
