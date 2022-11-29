@@ -10,6 +10,7 @@ export class AnalysePortfeuilleInDirectComponent implements OnInit {
   constructor(private route:Router) { }
 
   ngOnInit(): void {
+    
   }
   graphePortefeuilinDirect(){
     this.route.navigateByUrl("Admin/AnalysePortfeuille/GraphePortfeuilleindirect");

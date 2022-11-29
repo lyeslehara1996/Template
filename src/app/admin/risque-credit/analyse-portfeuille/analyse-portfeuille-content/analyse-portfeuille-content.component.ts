@@ -1,5 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ActionDeRecouvermentComponent } from '../action-de-recouverment/action-de-recouverment.component';
+import { ActionJusticeComponent } from '../action-justice/action-justice.component';
 import { AnalysePortfeuilleDirectComponent } from '../analyse-portfeuille-direct/analyse-portfeuille-direct.component';
 import { AnalysePortfeuilleInDirectComponent } from '../analyse-portfeuille-in-direct/analyse-portfeuille-in-direct.component';
 import { CreationDouteuseComponent } from '../creation-douteuse/creation-douteuse.component';
@@ -36,9 +38,14 @@ export class AnalysePortfeuilleContentComponent implements OnInit {
       component:CreationDouteuseComponent
     },
     {
-      menuItem: 'Action De Recouverment',
+      menuItem: 'Action De Recouverments',
       path: 'ActionDeRecouverment',
       component:ActionDeRecouvermentComponent
+    },
+    {
+      menuItem: 'Action De Justice  ',
+      path: 'ActionDeJustices',
+      component:ActionJusticeComponent
     },
   ]
 

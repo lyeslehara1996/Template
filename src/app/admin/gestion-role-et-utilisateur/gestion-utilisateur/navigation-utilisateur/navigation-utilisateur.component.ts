@@ -23,8 +23,8 @@ export class NavigationUtilisateurComponent implements OnInit {
       
     },
     {
-      menuItem: 'Modifier Des Utilisateurs',
-      path: 'ModifierDesUtilisateurs/:id',
+      menuItem: "Affecter  roles a l'utilisateur ",
+      path: 'AffecterRoleUtilisateur/:id',
 
     },
   ]

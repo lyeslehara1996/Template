@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { StorageSService } from 'app/_services/storageService/storage-s.service';
-
 @Component({
   selector: 'app-gestion-utilisateur',
   templateUrl: './gestion-utilisateur.component.html',
@@ -8,7 +6,7 @@ import { StorageSService } from 'app/_services/storageService/storage-s.service'
 })
 export class GestionUtilisateurComponent implements OnInit {
 
-  constructor(private storageService : StorageSService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

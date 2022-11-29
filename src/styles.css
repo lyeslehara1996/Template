@@ -6,3 +6,17 @@
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
       var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
+  .main-panel .main-content,
+  *.main-content {
+      max-width: 100%;
+      min-width: fit-content!important;
+      width: auto;
+  }
+  .main-content {
+      max-width: 100%;
+      min-width: fit-content!important;
+      width: auto;
+  }
+   .modal.show {
+    overflow-y: scroll;
+  }

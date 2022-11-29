@@ -1,3 +1,4 @@
+import { UpdateUserModalComponent } from './admin/gestion-role-et-utilisateur/gestion-utilisateur/update-user-modal/update-user-modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,7 +33,7 @@ import { PortefeuilDirectComponent } from './admin/risque-credit/analyse-portfeu
   imports: [
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule,
+   ReactiveFormsModule, 
     HttpClientModule,
     RouterModule,
     AppRoutingModule,
@@ -58,7 +59,7 @@ import { PortefeuilDirectComponent } from './admin/risque-credit/analyse-portfeu
     TesttailwindComponent,
 
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders],  entryComponents: [UpdateUserModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

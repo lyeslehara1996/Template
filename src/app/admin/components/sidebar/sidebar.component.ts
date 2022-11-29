@@ -166,7 +166,9 @@ onclicksubmenu(event: any){
   submenu.classList.toggle('show')
   submenu.parentElement.querySelector('span').classList.toggle('rotate')
   document.querySelectorAll('.submenu').forEach(function (item) {
-    if (item !== submenu) item.classList.remove('show')
+    if (item !== submenu) {
+      item.classList.remove('show'); 
+      item.parentElement.querySelector('span').classList.remove('rotate')}
   })
   // console.log(event.target)
 }

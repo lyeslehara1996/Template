@@ -88,27 +88,6 @@ this.submitted= true;
   }
 
 
-// onSubmit(){
-//   this.submitted= true;
-
-//   const payloads = {
-//     username: this.LoginForm.value['username'],
-//     password: this.LoginForm.value['password']
-//   };
- 
-//  this.authService.Login(this.LoginForm.value['username'],this.LoginForm.value['password']).subscribe(
-//   ()=>{
-//     this.store.dispatch(new LogIn(<AppUser>{
-//       username: this.LoginForm.value['username'],
-//       password: this.LoginForm.value['password']
-//     }));
-    
-//   }
-//   )
-
-// }
-
-
   reloadPage(): void {
     window.location.reload();
   }

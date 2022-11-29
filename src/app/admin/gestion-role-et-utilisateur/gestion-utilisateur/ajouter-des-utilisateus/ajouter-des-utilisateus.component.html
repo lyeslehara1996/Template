@@ -1,16 +1,104 @@
-<div class="main-content">
+<div class="main-content" >
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
+         <div class="card">
                     <div class="card-header card-header-danger">
                         <h4 class="card-title ">Ajouter Un Utilisateur </h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                           <p>form to add Users</p>
+                            <div class="container ">
+                              <form  [formGroup]="AddUserForm" (ngSubmit)="onSubmit()">
+                                
+                                    <div class="form-group">
+                                      <label for="nom"> Nom </label>
+                                      <input type="text" class="form-control" formControlName="nom"  name="nom" ngModel nom/>
+                                      <p class="text-danger"   *ngIf="submitted && hasError('nom', 'required')">champs obligatoire</p>
+                                      <p  class="text-danger"  *ngIf="submitted && hasError('nom', 'minLength')">pas moin de 4 caracteres</p>
+                                      <p  class="text-danger"  *ngIf="submitted && hasError('nom', 'maxLength')">pas plus de 15 caracteres</p>
+                              
+                                    </div>
+                          
+                                    <div class="form-group">
+                                      <label for="prenom"> Prenom </label>
+                                      <input type="text" class="form-control" formControlName="prenom" name="prenom" ngModel prenom/>
+                                      <p  class="text-danger"  *ngIf=" submitted && hasError('prenom', 'required')">champs obligatoire</p>
+                                      <p  class="text-danger"  *ngIf="submitted && hasError('prenom', 'minLength')">pas moin de 4 caracteres</p>
+                                      <p  class="text-danger"  *ngIf="submitted && hasError('prenom', 'maxLength')">pas plus de 15 caracteres</p>
+                                    </div>
+                          
+                                    <div class="form-group">
+                                      <label for="username"> Username </label>
+                                      <input type="text" class="form-control" formControlName="username" name="username" ngModel username/>
+                                      <p  class="text-danger"  *ngIf="submitted && hasError('username', 'required')">champs obligatoire</p>
+                                      <p  class="text-danger"  *ngIf="submitted && hasError('username', 'minLength')">pas moin de 4 caracteres</p>
+                                      <p  class="text-danger"  *ngIf="submitted && hasError('username', 'maxLength')">pas plus de 15 caracteres</p>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="password"> password </label>
+                                      <input type="text" class="form-control" formControlName="password"  name="password" ngModel password/>
+                                      <p  class="text-danger"  *ngIf="submitted && hasError('password', 'required')">champs obligatoire</p>
+                                      <p  class="text-danger"  *ngIf="submitted && hasError('password', 'minLength')">pas moin de 4 caracteres</p>
+                                      <p  class="text-danger"  *ngIf="submitted && hasError('password', 'maxLength')">pas plus de 15 caracteres</p>
+                                    </div>
+                          
+                                    <div class="form-group">
+                                      <label for="email"> Email </label>
+                                      <input type="text" class="form-control" formControlName="email" name="email" ngModel email/>
+                                      <p  class="text-danger"  *ngIf="submitted && hasError('email', 'required')">champs obligatoire</p>
+                                      <p  class="text-danger"  *ngIf="submitted && hasError('email', 'minLength')">pas moin de 4 caracteres</p>
+                                      <p  class="text-danger"  *ngIf="submitted && hasError('email', 'maxLength')">pas plus de 15 caracteres</p>
+                                    </div>
+                          
+                                    <ng-container  *ngIf="roles$ | async as result"
+                                    [ngSwitch]="result.dataState">
+                          
+                                    <ng-container
+                                    *ngSwitchCase="DataStateEnum.LOADING"
+                                  >
+                                  <div class="d-flex justify-content-center">
+                                    <div class="spinner-border" role="status">
+                                      <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                  </div>
+                                  </ng-container>
+                                  <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+                                      <div class="form-group" >
+                                        <label for="role"> Role </label>
+                                        <select class="form-select" formControlName='roles' name="roles" ngModel roles >
+                                          <option  *ngFor="let role of result.data" value="{{role.id}}" [selected]="role.id" >{{role.name}}</option>
+                          
+                                        </select>
+                                      </div>
+                                    </ng-container>
+                                    </ng-container>
+                          
+                                    <ng-container  *ngIf="agences$ | async as result"
+                                    [ngSwitch]="result.dataState">
+                          
+                                    <ng-container
+                                    *ngSwitchCase="DataStateEnum.LOADING"
+                                  >
+                                  <div class="d-flex justify-content-center">
+                                    <div class="spinner-border" role="status">
+                                      <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                  </div>
+                                  </ng-container>
+                                  <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+                                      <div class="form-group" >
+                                        <label for="agences"> agence </label>
+                                        <select class="form-select" formControlName='agence' name="agence" ngModel agence >
+                                          <option  *ngFor="let agence of result.data" value="{{agence.id}}" [selected]="agence.id"  >{{agence.agenceName}}</option>
+                          
+                                        </select>
+                                      </div>
+                                    </ng-container>
+                                    </ng-container>
+
+                                    <button class="btn btn-primary align-content-center " type="submit"  >Save</button>
+                                  </form>
+                            </div>
+                            
                         </div>
-                    </div>
-                </div>
             </div>
           

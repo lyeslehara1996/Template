@@ -25,7 +25,11 @@
                         <ng-container
                         *ngSwitchCase="DataStateEnum.LOADING"
                       >
-                       <p class="text-lg-center text-uppercase" style="font-weight: 700; " >LOADING ... </p> 
+                      <div class="d-flex justify-content-center">
+                        <div class="spinner-border" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                        </div>
+                      </div>
                       </ng-container>
 
                       <ng-container *ngSwitchCase="DataStateEnum.ERROR">
@@ -82,22 +86,23 @@
                                        <td>{{p.agence ? p.agence.agenceName : (empty) }}</td>
                                        <td>{{p.roles.name}}</td>
                                        <td>
-                                        <select class="form-select">
+                                        <select class="form-select w-auto">
                                             <option *ngFor="let permission of p.roles.permissions">{{permission.namepermission}}</option>
                                         </select>
                                        </td>
-                                     <td>  <button class="btn btn-primary" (click)="onUpdateUser(p)"> Update</button></td>
-                                       <td><button class="btn btn-danger" (click)="onDeleteUser(p)"> Delete</button></td>
+                                     <td>  <button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="update($event, p)"> Update</button></td>
+                                       <td><button class="btn btn-danger " (click)="onDeleteUser(p)"> Delete</button></td>
                                     </tr>
                                  
                                 </tbody>
                             </table>
                         </div>
                     </ng-container>
-
-                    </ng-container> 
-                    </div>
-                </div>
+                    
+                </ng-container> 
             </div>
-
+        </div>
+    </div>
+    <app-update-user-modal [user]="user"></app-update-user-modal>
+    
           

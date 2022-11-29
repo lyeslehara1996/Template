@@ -3,11 +3,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .portefeuilIndirect_row {
   display: flex;
+  gap: 20px;
   justify-content: space-between;
 }
 

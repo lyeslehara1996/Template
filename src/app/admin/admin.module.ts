@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -44,7 +45,16 @@ import { GestionPermissionsComponent } from './gestion-Role-Et-Utilisateur/gesti
 import { NavigationUtilisateurComponent } from './gestion-role-et-utilisateur/gestion-utilisateur/navigation-utilisateur/navigation-utilisateur.component';
 import { ListeUtilisateursComponent } from './Gestion-role-et-utilisateur/gestion-utilisateur/liste-utilisateurs/liste-utilisateurs.component';
 import { AjouterDesUtilisateusComponent } from './Gestion-role-et-utilisateur/gestion-utilisateur/ajouter-des-utilisateus/ajouter-des-utilisateus.component';
-import { ModifierUtilisateursComponent } from './Gestion-role-et-utilisateur/gestion-utilisateur/modifier-utilisateurs/modifier-utilisateurs.component';
+import { UpdateUserModalComponent } from './gestion-role-et-utilisateur/gestion-utilisateur/update-user-modal/update-user-modal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavigationRoleComponent } from './gestion-role-et-utilisateur/gestion-roles/navigation-role/navigation-role.component';
+import { ListsRolesComponent } from './gestion-role-et-utilisateur/gestion-roles/lists-roles/lists-roles.component';
+import { AjouterDesRolesComponent } from './gestion-role-et-utilisateur/gestion-roles/ajouter-des-roles/ajouter-des-roles.component';
+import { ModalUpdateRoleComponent } from './gestion-role-et-utilisateur/gestion-roles/modal-update-role/modal-update-role.component';
+import { TauxDefautChartComponent } from './risque-credit/analyse-portfeuille/creation-douteuse/taux-defaut-chart/taux-defaut-chart.component';
+import { ImpayeMilliardsChartComponent } from './risque-credit/analyse-portfeuille/creation-douteuse/impaye-milliards-chart/impaye-milliards-chart.component';
+import { CreanceDouteuseEtProvisionChartComponent } from './risque-credit/analyse-portfeuille/creation-douteuse/creance-douteuse-et-provision-chart/creance-douteuse-et-provision-chart.component';
+import { ActionJusticeComponent } from './risque-credit/analyse-portfeuille/action-justice/action-justice.component';
 
 
 
@@ -86,7 +96,15 @@ import { ModifierUtilisateursComponent } from './Gestion-role-et-utilisateur/ges
     NavigationUtilisateurComponent,
     ListeUtilisateursComponent,
     AjouterDesUtilisateusComponent,
-    ModifierUtilisateursComponent,
+    UpdateUserModalComponent,
+    NavigationRoleComponent,
+    ListsRolesComponent,
+    AjouterDesRolesComponent,
+    ModalUpdateRoleComponent,
+    TauxDefautChartComponent,
+    ImpayeMilliardsChartComponent,
+    CreanceDouteuseEtProvisionChartComponent,
+    ActionJusticeComponent,
 
   
   ],
@@ -94,6 +112,8 @@ import { ModifierUtilisateursComponent } from './Gestion-role-et-utilisateur/ges
     CommonModule,
     AdminRoutingModule,
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule, 
     MatInputModule,
     MatPseudoCheckboxModule,
     MatButtonModule,

@@ -1,3 +1,4 @@
+import { ActionJusticeComponent } from './../../risque-credit/analyse-portfeuille/action-justice/action-justice.component';
 import { Routes } from "@angular/router";
 import { TableListComponent } from "../../table-list/table-list.component";
 import { TypographyComponent } from "../../typography/typography.component";
@@ -21,10 +22,10 @@ import { GestionPermissionsComponent } from "app/admin/gestion-Role-Et-Utilisate
 import { AnalysePortfeuilleInDirectComponent } from "app/admin/risque-credit/analyse-portfeuille/analyse-portfeuille-in-direct/analyse-portfeuille-in-direct.component";
 import { ListeUtilisateursComponent } from "app/admin/Gestion-role-et-utilisateur/gestion-utilisateur/liste-utilisateurs/liste-utilisateurs.component";
 import { AjouterDesUtilisateusComponent } from "app/admin/Gestion-role-et-utilisateur/gestion-utilisateur/ajouter-des-utilisateus/ajouter-des-utilisateus.component";
-import { ModifierUtilisateursComponent } from "app/admin/Gestion-role-et-utilisateur/gestion-utilisateur/modifier-utilisateurs/modifier-utilisateurs.component";
-import { HasPermissionGuardChild } from "app/_Guards/has-permission-child.guard";
 import { PortefeuilDirectComponent } from "app/admin/risque-credit/analyse-portfeuille/portefeuil-direct/portefeuil-direct.component";
 import { PortefeuilIndirectComponent } from "app/admin/risque-credit/analyse-portfeuille/analyse-portfeuille-in-direct/portefeuil-indirect/portefeuil-indirect.component";
+import { ListsRolesComponent } from "app/admin/gestion-role-et-utilisateur/gestion-roles/lists-roles/lists-roles.component";
+import { AjouterDesRolesComponent } from "app/admin/gestion-role-et-utilisateur/gestion-roles/ajouter-des-roles/ajouter-des-roles.component";
 
 export const AdminLayoutRoutes: Routes = [
   {
@@ -56,15 +57,36 @@ export const AdminLayoutRoutes: Routes = [
             path: "AjouterDesUtilisateurs",
             component: AjouterDesUtilisateusComponent,
           },
-          {
-            path: 'ModifierDesUtilisateurs/:id',
-            component: ModifierUtilisateursComponent,
-          },
+        
         ],
       },
       {
         path: "GestionDesRoles",
         component: GestionRolesComponent,
+        children: [
+          {
+            path: "ListesRoles",
+            component: ListsRolesComponent,
+           
+          },
+          {
+            path: "AjouterRole",
+            component: AjouterDesRolesComponent,
+          },
+          {
+            path: "AffecterRoleUtilisateur",
+            component: AjouterDesRolesComponent,
+          },
+          {
+            path: "ListPermissions",
+            component: AjouterDesRolesComponent,
+          },
+          {
+            path: "ajouterDesPermissions",
+            component: AjouterDesRolesComponent,
+          },
+        
+        ],
       },
       {
         path: "GestionDesPermission",
@@ -107,6 +129,10 @@ export const AdminLayoutRoutes: Routes = [
           {
             path: "ActionDeRecouverment",
             component: ActionDeRecouvermentComponent,
+          },
+          {
+            path: "ActionDeJustices",
+            component: ActionJusticeComponent,
           },
         ],
       },
