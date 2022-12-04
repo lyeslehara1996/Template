@@ -38,8 +38,8 @@ export class UserService {
   {    return this.httpClient.get<AppUser[]>(this.PATH_API+`/user${id}`,this.httpOptions);
   }
 
-  public AddUsers( appUser) {
-    return this.httpClient.post(this.PATH_API+"users/save",appUser,this.httpOptions);
+  public AddUsers(formData) {
+    return this.httpClient.post(this.PATH_API+"users/save",formData,this.httpOptions);
   }
 
   public UpdateUsers(id:number,formData){

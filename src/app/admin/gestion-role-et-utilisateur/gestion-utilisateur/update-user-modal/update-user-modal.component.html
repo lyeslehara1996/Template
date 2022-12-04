@@ -24,9 +24,7 @@
         <h5 class="modal-title" id="staticBackdropLabel">Modifier un utilisateur </h5>
         <button
           type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
+          class="btn-close closeModal" data-bs-dismiss="modal" aria-label="Close"     (click)="onCloseModal()"
         ></button>
       </div>
       <div class="modal-body">
@@ -111,9 +109,12 @@
       </div>
       <div class="modal-footer">
         <button
+        (click)="onCloseModal()"
+        type="button"
           type="button"
-          class="btn btn-secondary"
+          class="btn btn-secondary closeModal"
           data-bs-dismiss="modal"
+       
                 >
           Close
         </button>

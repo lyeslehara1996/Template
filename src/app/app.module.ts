@@ -26,7 +26,6 @@ import { CreditNetComponent } from './admin/risque-credit/analyse-portfeuille/po
 import { ParTypeEngagementComponent } from './admin/risque-credit/analyse-portfeuille/portefeuil-direct/par-type-engagement/par-type-engagement.component';
 import { EvolutionDirectComponent } from './admin/risque-credit/analyse-portfeuille/portefeuil-direct/evolution-direct/evolution-direct.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { TesttailwindComponent } from './testtailwind/testtailwind.component';
 import { PortefeuilDirectComponent } from './admin/risque-credit/analyse-portfeuille/portefeuil-direct/portefeuil-direct.component';
 
 @NgModule({
@@ -56,7 +55,6 @@ import { PortefeuilDirectComponent } from './admin/risque-credit/analyse-portfeu
     CreditNetComponent,
     ParTypeEngagementComponent,
     EvolutionDirectComponent,
-    TesttailwindComponent,
 
   ],
   providers: [authInterceptorProviders],  entryComponents: [UpdateUserModalComponent],

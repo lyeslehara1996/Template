@@ -1,34 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { Route } from '@angular/router';
-import { AdminLayoutRoutes } from 'app/admin/layouts/admin-layout/admin-layout.routing';
-import { User } from 'app/Models/User.model';
 import { StorageSService } from 'app/_services/storageService/storage-s.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { User } from 'app/Models/User.model';
+import { AdminLayoutRoutes } from 'app/admin/layouts/admin-layout/admin-layout.routing';
+import { Route } from '@angular/router';
 
 @Component({
-  selector: 'app-navigation-utilisateur',
-  templateUrl: './navigation-utilisateur.component.html',
-  styleUrls: ['./navigation-utilisateur.component.css']
+  selector: 'app-navigation-menu',
+  templateUrl: './navigation-menu.component.html',
+  styleUrls: ['./navigation-menu.component.css']
 })
-export class NavigationUtilisateurComponent implements OnInit {
-  protected menuItems = [
-    {
-      menuItem: 'List Des Utilisateurs',
-      
-      path: 'ListeUtilisateurs',
-     
-    },
-    {
-      menuItem: 'Ajouter Des Utilisateurs',
-      path: 'AjouterDesUtilisateurs',
-      
-    },
-    {
-      menuItem: "Affecter  roles a l'utilisateur ",
-      path: 'AffecterRoleUtilisateur/:id',
+export class NavigationMenuComponent implements OnInit {
 
-    },
-  ]
-
+  @Input() navigationItems:[{menuItem: string, path: string}]
   constructor(private storage:StorageSService) { }
 
   ngOnInit(): void {
@@ -39,7 +22,7 @@ export class NavigationUtilisateurComponent implements OnInit {
    let user = (new User(this.storage.getUser()))
    let routes = [...AdminLayoutRoutes]
    let flattenedRoutes = this.getFlattenedRoutesArray(routes)
-   let items = this.menuItems.filter(item => {
+   let items = this.navigationItems.filter(item => {
     return flattenedRoutes.find(route => {
       if (route.path === item. path) {
         let routePermission = route?.data?.requiredPermission
@@ -66,5 +49,4 @@ export class NavigationUtilisateurComponent implements OnInit {
     })
     return newRoutes
   }
-
 }

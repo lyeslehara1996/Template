@@ -174,9 +174,9 @@ onclicksubmenu(event: any){
 }
 
 getRoutes() {
-  // let user = new User(this.storageSer.getUser());
-  // let IsAdmine = user.hasRole('admin')
-  let isAdmin = this.storageSer.userIsAdmin()
-  return ROUTES.filter(item => !isAdmin && item.forAdmin ? false : true )
+  let user = new User(this.storageSer.getUser());
+  let IsAdmine = user.hasRole('Admin')
+  //let isAdmin = this.storageSer.userIsAdmin()
+  return ROUTES.filter(item => !IsAdmine && item.forAdmin ? false : true )
 }
 }

@@ -1,3 +1,4 @@
+import { NavigationMenuComponent } from './components/navigation-menu/navigation-menu.component';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -37,17 +38,14 @@ import { LimitesBanquesComponent } from './risque-de-marche/limites-banques/limi
 import { InvertissementsComponent } from './risque-de-marche/invertissements/invertissements.component';
 import { NotionsPaysComponent } from './risque-de-marche/notions-pays/notions-pays.component';
 import { NotionsBanquesComponent } from './risque-de-marche/notions-banques/notions-banques.component';
-import { AnalysePortfeuilleContentComponent } from './risque-credit/Analyse-portfeuille/analyse-portfeuille-content/analyse-portfeuille-content.component';
 
 import { GestionUtilisateurComponent } from './gestion-Role-Et-Utilisateur/gestion-utilisateur/gestion-utilisateur.component';
 import { GestionRolesComponent } from './gestion-Role-Et-Utilisateur/gestion-roles/gestion-roles.component';
 import { GestionPermissionsComponent } from './gestion-Role-Et-Utilisateur/gestion-permissions/gestion-permissions.component';
-import { NavigationUtilisateurComponent } from './gestion-role-et-utilisateur/gestion-utilisateur/navigation-utilisateur/navigation-utilisateur.component';
 import { ListeUtilisateursComponent } from './Gestion-role-et-utilisateur/gestion-utilisateur/liste-utilisateurs/liste-utilisateurs.component';
 import { AjouterDesUtilisateusComponent } from './Gestion-role-et-utilisateur/gestion-utilisateur/ajouter-des-utilisateus/ajouter-des-utilisateus.component';
 import { UpdateUserModalComponent } from './gestion-role-et-utilisateur/gestion-utilisateur/update-user-modal/update-user-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NavigationRoleComponent } from './gestion-role-et-utilisateur/gestion-roles/navigation-role/navigation-role.component';
 import { ListsRolesComponent } from './gestion-role-et-utilisateur/gestion-roles/lists-roles/lists-roles.component';
 import { AjouterDesRolesComponent } from './gestion-role-et-utilisateur/gestion-roles/ajouter-des-roles/ajouter-des-roles.component';
 import { ModalUpdateRoleComponent } from './gestion-role-et-utilisateur/gestion-roles/modal-update-role/modal-update-role.component';
@@ -55,6 +53,9 @@ import { TauxDefautChartComponent } from './risque-credit/analyse-portfeuille/cr
 import { ImpayeMilliardsChartComponent } from './risque-credit/analyse-portfeuille/creation-douteuse/impaye-milliards-chart/impaye-milliards-chart.component';
 import { CreanceDouteuseEtProvisionChartComponent } from './risque-credit/analyse-portfeuille/creation-douteuse/creance-douteuse-et-provision-chart/creance-douteuse-et-provision-chart.component';
 import { ActionJusticeComponent } from './risque-credit/analyse-portfeuille/action-justice/action-justice.component';
+import { ListpermissionComponent } from './gestion-role-et-utilisateur/gestion-roles/listpermission/listpermission.component';
+import { AddPermissionToRoleComponent } from './gestion-role-et-utilisateur/gestion-roles/add-permission-to-role/add-permission-to-role.component';
+import { AddPermissionComponent } from './gestion-role-et-utilisateur/gestion-roles/add-permission/add-permission.component';
 
 
 
@@ -88,16 +89,13 @@ import { ActionJusticeComponent } from './risque-credit/analyse-portfeuille/acti
     InvertissementsComponent,
     NotionsPaysComponent,
     NotionsBanquesComponent,
-    AnalysePortfeuilleContentComponent,
 
     GestionUtilisateurComponent,
     GestionRolesComponent,
     GestionPermissionsComponent,
-    NavigationUtilisateurComponent,
     ListeUtilisateursComponent,
     AjouterDesUtilisateusComponent,
     UpdateUserModalComponent,
-    NavigationRoleComponent,
     ListsRolesComponent,
     AjouterDesRolesComponent,
     ModalUpdateRoleComponent,
@@ -105,6 +103,10 @@ import { ActionJusticeComponent } from './risque-credit/analyse-portfeuille/acti
     ImpayeMilliardsChartComponent,
     CreanceDouteuseEtProvisionChartComponent,
     ActionJusticeComponent,
+    NavigationMenuComponent,
+    ListpermissionComponent,
+    AddPermissionToRoleComponent,
+    AddPermissionComponent
 
   
   ],

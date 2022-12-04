@@ -1,3 +1,6 @@
+import { AddPermissionToRoleComponent } from './../../gestion-role-et-utilisateur/gestion-roles/add-permission-to-role/add-permission-to-role.component';
+import { AddPermissionComponent } from './../../gestion-role-et-utilisateur/gestion-roles/add-permission/add-permission.component';
+import { ListpermissionComponent } from './../../gestion-role-et-utilisateur/gestion-roles/listpermission/listpermission.component';
 import { ActionJusticeComponent } from './../../risque-credit/analyse-portfeuille/action-justice/action-justice.component';
 import { Routes } from "@angular/router";
 import { TableListComponent } from "../../table-list/table-list.component";
@@ -73,17 +76,18 @@ export const AdminLayoutRoutes: Routes = [
             path: "AjouterRole",
             component: AjouterDesRolesComponent,
           },
-          {
-            path: "AffecterRoleUtilisateur",
-            component: AjouterDesRolesComponent,
-          },
+  
           {
             path: "ListPermissions",
-            component: AjouterDesRolesComponent,
+            component: ListpermissionComponent,
           },
           {
             path: "ajouterDesPermissions",
-            component: AjouterDesRolesComponent,
+            component: AddPermissionComponent,
+          },
+          {
+            path: "AjouterPermissionRole",
+            component: AddPermissionToRoleComponent,
           },
         
         ],
@@ -100,6 +104,7 @@ export const AdminLayoutRoutes: Routes = [
       {
         path: "AnalysePortfeuille",
         component: AnalysePortfeuilleComponent,
+      
         children: [
           {
             path: "GraphePortfeuilledirect",
@@ -113,7 +118,12 @@ export const AdminLayoutRoutes: Routes = [
           {
             path: "Portfeuilledirect",
             component: AnalysePortfeuilleDirectComponent,
+            canActivate : [AuthPermissionsGuard],  // to add permissions at route 
+            data :{
+              requiredPermission:['ConsulterUser']
+        },
           },
+          
           {
             path: "AnalysePortfeuilleInDirect",
             component: AnalysePortfeuilleInDirectComponent,

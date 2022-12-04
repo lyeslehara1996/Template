@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TesttailwindComponent } from './testtailwind.component';
+import { AddPermissionComponent } from './add-permission.component';
 
-describe('TesttailwindComponent', () => {
-  let component: TesttailwindComponent;
-  let fixture: ComponentFixture<TesttailwindComponent>;
+describe('AddPermissionComponent', () => {
+  let component: AddPermissionComponent;
+  let fixture: ComponentFixture<AddPermissionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TesttailwindComponent ]
+      declarations: [ AddPermissionComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TesttailwindComponent);
+    fixture = TestBed.createComponent(AddPermissionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

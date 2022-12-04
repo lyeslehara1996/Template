@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavigationRoleComponent } from './navigation-role.component';
+import { ListpermissionComponent } from './listpermission.component';
 
-describe('NavigationRoleComponent', () => {
-  let component: NavigationRoleComponent;
-  let fixture: ComponentFixture<NavigationRoleComponent>;
+describe('ListpermissionComponent', () => {
+  let component: ListpermissionComponent;
+  let fixture: ComponentFixture<ListpermissionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavigationRoleComponent ]
+      declarations: [ ListpermissionComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NavigationRoleComponent);
+    fixture = TestBed.createComponent(ListpermissionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

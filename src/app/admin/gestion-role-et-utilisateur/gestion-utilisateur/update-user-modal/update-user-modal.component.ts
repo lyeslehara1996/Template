@@ -74,13 +74,7 @@ export class UpdateUserModalComponent implements OnInit {
 
   }
 
-  ngOnChanges(changes): void {
-    console.log(changes)    
-  }
 
-
-  
- 
 
   getAllRole(){
     this.roles$=
@@ -131,6 +125,12 @@ save(event) {
     alert("User Updated");    
     window.location.reload();
   })
+
+}
+
+onCloseModal(){
+
+  document.querySelector('.update-user-modal').classList.remove('d-block');
 
 }
 

@@ -59,7 +59,7 @@ export class AjouterDesUtilisateusComponent implements OnInit {
     });
 
     this.getAllRole();
-    this.getAllAgence()
+    this.getAllAgence();
   }
 
   getAllRole(){
@@ -67,7 +67,7 @@ export class AjouterDesUtilisateusComponent implements OnInit {
     this.userService.getAllRoles().pipe(
       map(
         data=>{
-          console.log(data);
+
        return ({dataState:DataStateEnum.LOADED,data:data}) 
         }),
       startWith({dataState:DataStateEnum.LOADING}),
@@ -79,7 +79,6 @@ getAllAgence(){
   this.userService.getAllAgence().pipe(
     map(
       data=>{
-        console.log(data);
      return ({dataState:DataStateEnum.LOADED,data:data}) 
       }),
     startWith({dataState:DataStateEnum.LOADING}),
@@ -102,6 +101,7 @@ onSubmit(){
   }
   
   console.log(FormData);
+  console.log(FormData.agence);
   
       this.userService.AddUsers(FormData).subscribe(()=>{
         alert("User Created ");

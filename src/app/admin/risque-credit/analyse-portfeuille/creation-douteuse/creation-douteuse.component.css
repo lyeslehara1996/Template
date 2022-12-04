@@ -24,3 +24,11 @@
   font-weight: bold;
 
 }
+  .container {
+    min-width: auto !important;
+    max-width: inherit !important;
+  }
+
+  .container .row {
+    flex-wrap: nowrap;
+  }

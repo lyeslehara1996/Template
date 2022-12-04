@@ -66,7 +66,6 @@ this.submitted= true;
         this.isLoginFailed = false
         this.storageSService.saveToken(Response.jwtAccessTocken);
         this.storageSService.saveUser(Response);
-        console.log(this.storageSService.getUser())
         if(this.storageSService.getToken() && this.storageSService.isLoggedIn() === true ){
           this.router.navigateByUrl('/Admin')
   
@@ -77,7 +76,6 @@ this.submitted= true;
       (error)=>{
      
        this.errorMessage = error.error
-      console.log(this.errorMessage)
         this.isLoginFailed = true;
         this.isLoggedIn = false;
       

@@ -1,1 +1,105 @@
-<p>ajouter-des-roles works!</p>
+<style>
+    .card .card-header {
+        background: var(--theme-color)!important;
+    }
+</style>
+<div class="main-content" >
+    <div class="container-fluid">
+         <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Ajouter un role </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <div class="container ">
+                              <form  [formGroup]="AddRoleForm" (ngSubmit)="onSubmit()">
+                                
+                                    <div class="form-group">
+                                      <label for="roleName">  Role Name </label>
+                                      <input type="text" class="form-control" formControlName="roleName"  name="roleName" ngModel roleName/>
+                                      <p class="text-danger"   *ngIf="submitted && hasError('roleName', 'required')">champs obligatoire</p>
+                                      <p  class="text-danger"  *ngIf="submitted && hasError('roleName', 'minLength')">pas moin de 4 caracteres</p>
+                                      <p  class="text-danger"  *ngIf="submitted && hasError('roleName', 'maxLength')">pas plus de 15 caracteres</p>
+                              
+                                    </div>
+                        
+                                    <div class="form-group" >
+                                        <label for="Permissions"> Permissions </label>
+                                        <select class="form-select" formControlName='permissions' name="permissions" ngModel permissions >
+                                          <option> perm1 </option>  
+                                          <option> perm2 </option>  
+                                          <option> perm2 </option>  
+                                          <option> perm3 </option>  
+                                          <option> perm4 </option>  
+                                        </select>
+                                      </div>
+
+                                      <span class="d-lg-inline">
+                                        <p>permi1</p>  
+                                        <p>permi2</p>
+                                      </span>
+                            
+                                    <div class="form-group" >
+                                        <label for="niveau"> niveau </label>
+                                        <select class="form-select" formControlName='niveau' name="niveau" ngModel niveau >
+                                          <option> niveau 1 </option>  
+                                          <option> niveau 2 </option>  
+                                          <option> niveau 2 </option>  
+                                          <option> niveau 3 </option>  
+                                          <option> niveau 4 </option>  
+                                        </select>
+                                      </div>
+<!--                                  
+                                    <ng-container  *ngIf="permissions$ | async as result"
+                                    [ngSwitch]="result.dataState">
+                          
+                                    <ng-container
+                                    *ngSwitchCase="DataStateEnum.LOADING"
+                                  >
+                                  <div class="d-flex justify-content-center">
+                                    <div class="spinner-border" role="status">
+                                      <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                  </div>
+                                  </ng-container>
+                                  <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+                                      <div class="form-group" >
+                                        <label for="Permissions"> Permissions </label>
+                                        <select class="form-select" formControlName='permissions' name="permissions" ngModel permissions >
+                                          <option  *ngFor="let permission of result.data" value="{{permission.id}}" [selected]="permission.id" >{{permission.namepermission}}</option>
+                          
+                                        </select>
+                                      </div>
+                                    </ng-container>
+                                    </ng-container>
+                          
+                                    <ng-container  *ngIf="niveaux$ | async as result"
+                                    [ngSwitch]="result.dataState">
+                          
+                                    <ng-container
+                                    *ngSwitchCase="DataStateEnum.LOADING"
+                                  >
+                                  <div class="d-flex justify-content-center">
+                                    <div class="spinner-border" role="status">
+                                      <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                  </div>
+                                  </ng-container>
+                                  <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+                                      <div class="form-group" >
+                                        <label for="niveaux"> niveaux </label>
+                                        <select class="form-select" formControlName='niveaux' name="niveaux" ngModel niveaux >
+                                          <option  *ngFor="let niveau of result.data" value="{{niveau.id}}" [selected]="niveau.id"  >{{niveau}}</option>
+                          
+                                        </select>
+                                      </div>
+                                    </ng-container>
+                                    </ng-container> -->
+
+                                    <button class="btn btn-primary align-content-center " type="submit"  >sauvegarder</button>
+                                  </form>
+                            </div>
+                            
+                        </div>
+            </div>
+          
