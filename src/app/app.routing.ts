@@ -4,7 +4,12 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { AppPageHomeComponent } from './app-page-home/app-page-home.component';
 import { AuthGGuard } from './_Guards/auth-g.guard';
-import { AuthPermissionsGuard } from './_Guards/auth-permissions.guard';
+
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ConfirmationPasswordComponent } from './confirmation-password/confirmation-password.component';
+
+import { PortefeuilDirectComponent } from './admin/risque-credit/analyse-portfeuille/portefeuil-direct/portefeuil-direct.component';
+import { PortefeuilIndirectComponent } from './admin/risque-credit/analyse-portfeuille/analyse-portfeuille-in-direct/portefeuil-indirect/portefeuil-indirect.component';
 
 const routes: Routes =[
   {
@@ -13,9 +18,21 @@ const routes: Routes =[
     component : AppPageHomeComponent
   },
   {
+    path: 'ForgotPassword',
+    component : ForgotPasswordComponent
+  },
+  {
+    path: 'ResetPassword/:token',
+    component : ConfirmationPasswordComponent
+  },
+  {
     path: '',
     component: AppPageHomeComponent,
   },
+
+  { path: 'portefeuil-indirect', component: PortefeuilIndirectComponent },
+  { path: 'portefeuil-direct', component: PortefeuilDirectComponent },
+ 
 
 
   {
