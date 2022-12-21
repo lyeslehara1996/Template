@@ -18,6 +18,12 @@ export class ConfirmationPasswordComponent implements OnInit {
    }
   public ResetPasswordForm?: FormGroup | null= null;
   ngOnInit(): void {
+    this.ResetPasswordForm = new FormGroup({
+      password: new FormControl('', [
+        Validators.required
+      ]),
+      confirmPassword: new FormControl('', [Validators.required]),
+    });
 
     this.forgotPasswordService.CheckResetPasswordToken(this.token).subscribe(
       {
@@ -52,7 +58,7 @@ export class ConfirmationPasswordComponent implements OnInit {
         password.setAttribute("type", type);
         
         // toggle the icon
-      
+           this.classList.toggle("fa-eye-slash");
     });
     toggleConfirmPassword.addEventListener("click", function () {
         // toggle the type attribute
@@ -60,7 +66,7 @@ export class ConfirmationPasswordComponent implements OnInit {
         Confirmpassword.setAttribute("type", type);
         
         // toggle the icon
-       
+            this.classList.toggle("fa-eye-slash");
     });
   }
 
@@ -68,7 +74,7 @@ export class ConfirmationPasswordComponent implements OnInit {
   onSubmit(){
 
     this.submitted=true;
-    if(this.ResetPasswordForm?.invalid) return;
+    if(this.ResetPasswordForm.invalid) return;
         this.forgotPasswordService.ResetPasswordtoken(this.token,this.ResetPasswordForm?.value['password'],this.ResetPasswordForm.value['confirmPassword']).subscribe({
           next: data => {
             console.log(data)

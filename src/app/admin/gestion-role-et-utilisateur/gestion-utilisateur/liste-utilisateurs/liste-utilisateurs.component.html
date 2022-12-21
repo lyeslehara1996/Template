@@ -42,8 +42,8 @@
                          <ng-container *ngSwitchCase="DataStateEnum.LOADED"> 
                          
                         <div class="table-responsive" >
-                            <table class="table">
-                                <thead class=" text-primary">
+                            <table class="table table-bordered table-primary">
+                                <thead>
                                     <th class=" hidden-xs">
                                         id
                                     </th>
@@ -69,28 +69,28 @@
                                         Permissions
                                     </th>
                                     <th>
-                                        Update
+                                      Modifier
                                     </th>
                                     <th>
-                                        Delete
+                                        Supprimer
                                     </th>
                                 </thead>
                                 <tbody  >
                                     <tr *ngFor="let p of  result.data">
-                                        <td  class="hidden">{{p.id}}</td>
-                                       <td>{{p.nom}}</td>
-                                       <td>{{p.prenom}}</td>
-                                       <td>{{p.username}}</td>
-                                       <td>{{p.email}}</td>
-                                       <td>{{p.agence ? p.agence.agenceName : (empty) }}</td>
-                                       <td>{{p.roles.name}}</td>
-                                       <td>
-                                        <select class="form-select w-auto">
+                                        <td class="bg-white">{{p.id}}</td>
+                                       <td class="bg-white">{{p.nom}}</td>
+                                       <td class="bg-white">{{p.prenom}}</td>
+                                       <td class="bg-white">{{p.username}}</td>
+                                       <td class="bg-white">{{p.email}}</td>
+                                       <td class="bg-white">{{p.agence ? p.agence.agenceName : (empty) }}</td>
+                                       <td class="bg-white">{{p.roles.name}}</td>
+                                       <td class="bg-white">
+                                        <select class="form-select w-fit-content">
                                             <option *ngFor="let permission of p.roles.permissions">{{permission.namepermission}}</option>
                                         </select>
                                        </td>
-                                     <td>  <button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="update($event, p)"> Update</button></td>
-                                       <td><button class="btn btn-danger " (click)="onDeleteUser(p)"> Delete</button></td>
+                                     <td>  <button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="update(p)"> modifier</button></td>
+                                       <td><button class="btn btn-danger " (click)="onDeleteUser(p)"> supprimer</button></td>
                                     </tr>
                                  
                                 </tbody>

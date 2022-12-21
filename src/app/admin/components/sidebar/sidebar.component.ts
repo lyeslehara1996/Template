@@ -19,7 +19,7 @@ declare interface children {
 }
 export const ROUTES: RouteInfo[] = [
  
-    { path: '/Admin/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
+    // { path: '/Admin/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
     { path: '', forAdmin: true, title: 'Gestion Administateur',  icon: 'admin_panel_settings', class: '', children :[ 
       {
               path: '/Admin/GestionUtilisateur',
@@ -30,12 +30,8 @@ export const ROUTES: RouteInfo[] = [
               path: '/Admin/GestionDesRoles',
               title:'Gestion Des Roles'
           },
-         {
-              path: '/Admin/GestionDesPermission',
-              title:'Gestion Des Permissions Utilisateurs '
-          },
-        
-        ]
+     
+                ]
         
         },
     { path: 'RisqueCredit', title: 'Risque Credit',  icon:'payments', class: '', children :[ 

@@ -1,6 +1,6 @@
-export interface Role{
+export interface Agence{
 
-    id:string;
+    id:number;
     agenceName:string;
     description:string
   

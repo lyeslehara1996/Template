@@ -12,42 +12,111 @@
                                     <div class="form-group">
                                       <label for="nom"> Nom </label>
                                       <input type="text" class="form-control" formControlName="nom"  name="nom" ngModel nom/>
-                                      <p class="text-danger"   *ngIf="submitted && hasError('nom', 'required')">champs obligatoire</p>
-                                      <p  class="text-danger"  *ngIf="submitted && hasError('nom', 'minLength')">pas moin de 4 caracteres</p>
-                                      <p  class="text-danger"  *ngIf="submitted && hasError('nom', 'maxLength')">pas plus de 15 caracteres</p>
-                              
+                                      <p
+                                      class="text-danger"
+                                      *ngIf="(AddUserForm.controls.nom.touched || submitted)  && AddUserForm.controls.nom.errors?.required"
+                                    >
+                                      champs obligatoire
+                                    </p>
+                                    <p
+                                      class="text-danger"
+                                      *ngIf="(AddUserForm.controls.nom.touched || submitted)  && AddUserForm.controls.nom.errors?.minlength"
+                                    >
+                                      pas moin de 4 caracteres
+                                    </p>
+                                    <p
+                                      class="text-danger"
+                                      *ngIf="(AddUserForm.controls.nom.touched || submitted)  && AddUserForm.controls.nom.errors?.maxlength"
+                                    >
+                                      pas plus de 15 caracteres
+                                    </p>
                                     </div>
                           
                                     <div class="form-group">
                                       <label for="prenom"> Prenom </label>
                                       <input type="text" class="form-control" formControlName="prenom" name="prenom" ngModel prenom/>
-                                      <p  class="text-danger"  *ngIf=" submitted && hasError('prenom', 'required')">champs obligatoire</p>
-                                      <p  class="text-danger"  *ngIf="submitted && hasError('prenom', 'minLength')">pas moin de 4 caracteres</p>
-                                      <p  class="text-danger"  *ngIf="submitted && hasError('prenom', 'maxLength')">pas plus de 15 caracteres</p>
+                                      <p
+                                      class="text-danger"
+                                      *ngIf="(AddUserForm.controls.prenom.touched || submitted)  && AddUserForm.controls.prenom.errors?.required"
+                                    >
+                                      champs obligatoire
+                                    </p>
+                                    <p
+                                      class="text-danger"
+                                      *ngIf="(AddUserForm.controls.prenom.touched || submitted)  && AddUserForm.controls.prenom.errors?.minlength"
+                                    >
+                                      pas moin de 4 caracteres
+                                    </p>
+                                    <p
+                                      class="text-danger"
+                                      *ngIf="(AddUserForm.controls.prenom.touched || submitted)  && AddUserForm.controls.prenom.errors?.maxlength"
+                                    >
+                                      pas plus de 15 caracteres
+                                    </p> 
                                     </div>
                           
                                     <div class="form-group">
                                       <label for="username"> Username </label>
                                       <input type="text" class="form-control" formControlName="username" name="username" ngModel username/>
-                                      <p  class="text-danger"  *ngIf="submitted && hasError('username', 'required')">champs obligatoire</p>
-                                      <p  class="text-danger"  *ngIf="submitted && hasError('username', 'minLength')">pas moin de 4 caracteres</p>
-                                      <p  class="text-danger"  *ngIf="submitted && hasError('username', 'maxLength')">pas plus de 15 caracteres</p>
+                                      <p
+                                      class="text-danger"
+                                      *ngIf="(AddUserForm.controls.username.touched || submitted)  && AddUserForm.controls.username.errors?.required"
+                                    >
+                                      champs obligatoire
+                                    </p>
+                                    <p
+                                      class="text-danger"
+                                      *ngIf="(AddUserForm.controls.username.touched || submitted)  && AddUserForm.controls.username.errors?.minlength"
+                                    >
+                                      pas moin de 4 caracteres
+                                    </p>
+                                    <p
+                                      class="text-danger"
+                                      *ngIf="(AddUserForm.controls.username.touched || submitted)  && AddUserForm.controls.username.errors?.maxlength"
+                                    >
+                                      pas plus de 15 caracteres
+                                    </p> 
                                     </div>
                                     <div class="form-group">
                                       <label for="password"> password </label>
                                       <input type="text" class="form-control" formControlName="password"  name="password" ngModel password/>
-                                      <p  class="text-danger"  *ngIf="submitted && hasError('password', 'required')">champs obligatoire</p>
-                                      <p  class="text-danger"  *ngIf="submitted && hasError('password', 'minLength')">pas moin de 4 caracteres</p>
-                                      <p  class="text-danger"  *ngIf="submitted && hasError('password', 'maxLength')">pas plus de 15 caracteres</p>
+                                      <p
+                                      class="text-danger"
+                                      *ngIf="(AddUserForm.controls.password.touched || submitted)  && AddUserForm.controls.password.errors?.required"
+                                    >
+                                      champs obligatoire
+                                    </p>
+                                    <p
+                                      class="text-danger"
+                                      *ngIf="(AddUserForm.controls.password.touched || submitted)  && AddUserForm.controls.password.errors?.minlength"
+                                    >
+                                      pas moin de 4 caracteres
+                                    </p>
+                                    <p
+                                      class="text-danger"
+                                      *ngIf="(AddUserForm.controls.password.touched || submitted)  && AddUserForm.controls.password.errors?.maxlength"
+                                    >
+                                      pas plus de 15 caracteres
+                                    </p> 
                                     </div>
                           
                                     <div class="form-group">
                                       <label for="email"> Email </label>
                                       <input type="text" class="form-control" formControlName="email" name="email" ngModel email/>
-                                      <p  class="text-danger"  *ngIf="submitted && hasError('email', 'required')">champs obligatoire</p>
-                                      <p  class="text-danger"  *ngIf="submitted && hasError('email', 'minLength')">pas moin de 4 caracteres</p>
-                                      <p  class="text-danger"  *ngIf="submitted && hasError('email', 'maxLength')">pas plus de 15 caracteres</p>
-                                    </div>
+                                      <p
+                                      class="text-danger"
+                                      *ngIf="(AddUserForm.controls.email.touched || submitted)  && AddUserForm.controls.email.errors?.required"
+                                    >
+                                      champs obligatoire
+                                    </p>
+                                    <p
+                                      class="text-danger"
+                                      *ngIf="(AddUserForm.controls.email.touched || submitted)  && AddUserForm.controls.email.errors?.email"
+                                    >
+                                     Respecter le format de l'email
+                                    </p>
+                                  
+                                      </div>
                           
                                     <ng-container  *ngIf="roles$ | async as result"
                                     [ngSwitch]="result.dataState">
@@ -61,6 +130,7 @@
                                     </div>
                                   </div>
                                   </ng-container>
+                                 
                                   <ng-container *ngSwitchCase="DataStateEnum.LOADED">
                                       <div class="form-group" >
                                         <label for="role"> Role </label>
@@ -70,6 +140,7 @@
                                         </select>
                                       </div>
                                     </ng-container>
+
                                     </ng-container>
                           
                                     <ng-container  *ngIf="agences$ | async as result"
@@ -95,8 +166,15 @@
                                     </ng-container>
                                     </ng-container>
 
-                                    <button class="btn btn-primary align-content-center " type="submit"  >sauvegarder</button>
+                                    <button class="btn btn-primary align-content-center " type="submit"   >sauvegarder</button>
                                   </form>
+                                  <div
+                                  *ngIf="errorMessage !== null"
+                                  class="alert alert-danger mt-5 center"
+                                  role="alert"
+                                >
+                                  {{ errorMessage }}
+                                </div>
                             </div>
                             
                         </div>

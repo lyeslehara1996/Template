@@ -1,4 +1,4 @@
-import { agence } from './../../../../Models/AppUser';
+
 import { Role } from './../../../../Models/Role';
 import { AppDataState, DataStateEnum } from '../../../../_States/appState';
 import { Observable, map, startWith, catchError, of } from 'rxjs';
@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'app/_services/UserService/user.service';
+import { Agence } from 'app/Models/Agence';
 
 @Component({
   selector: 'app-ajouter-des-utilisateus',
@@ -18,8 +19,8 @@ export class AjouterDesUtilisateusComponent implements OnInit {
   public AddUserForm!: FormGroup;
   readonly DataStateEnum = DataStateEnum;
   public roles$?: Observable<AppDataState<Role[]>> | null=null;
-  public agences$ ?: Observable<AppDataState<agence[]>> | null=null;
-
+  public agences$ ?: Observable<AppDataState<Agence[]>> | null=null;
+  errorMessage :string|null = null;
   submitted:boolean = false;
   ngOnInit(): void {
     this.AddUserForm = this.formBuilder.group({
@@ -87,29 +88,41 @@ getAllAgence(){
 }
 
 onSubmit(){
-  this.submitted= true;
-  let roles ={id: this.AddUserForm.value.roles};
-  let agence ={id: this.AddUserForm.value.agence};
-  let FormData={
-    nom:this.AddUserForm.value.nom,
-    prenom:this.AddUserForm.value.prenom,
-    username:this.AddUserForm.value.username,
-    password:this.AddUserForm.value.password,
-    email:this.AddUserForm.value.email,
-    roles:roles,
-    agence:agence
+
+  if(this.AddUserForm.valid){
+
+    let roles ={id: this.AddUserForm.value.roles};
+    let agence ={id: this.AddUserForm.value.agence};
+    console.log(this.AddUserForm);
+    
+    let FormData={
+      nom:this.AddUserForm.value.nom,
+      prenom:this.AddUserForm.value.prenom,
+      username:this.AddUserForm.value.username,
+      password:this.AddUserForm.value.password,
+      email:this.AddUserForm.value.email,
+      roles:roles,
+      agence:agence
+    }
+    
+    console.log(FormData);
+    console.log(FormData.agence);
+  
+        this.userService.AddUsers(FormData).subscribe({
+          next:()=>{
+          alert("User Created ");
+         this.route.navigateByUrl("Admin/GestionUtilisateur/ListeUtilisateurs")
+        
+        },
+        error:(error)=>{
+          this.submitted=false;
+          console.log(error);
+          this.errorMessage = error.error
+        }
+      });
   }
   
-  console.log(FormData);
-  console.log(FormData.agence);
-  
-      this.userService.AddUsers(FormData).subscribe(()=>{
-        alert("User Created ");
-       this.route.navigateByUrl("Admin/GestionUtilisateur/ListeUtilisateurs")
-      
-      },error=>{
 
-      });
   }
 
   

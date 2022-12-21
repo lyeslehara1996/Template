@@ -41,7 +41,6 @@ import { NotionsBanquesComponent } from './risque-de-marche/notions-banques/noti
 
 import { GestionUtilisateurComponent } from './gestion-Role-Et-Utilisateur/gestion-utilisateur/gestion-utilisateur.component';
 import { GestionRolesComponent } from './gestion-Role-Et-Utilisateur/gestion-roles/gestion-roles.component';
-import { GestionPermissionsComponent } from './gestion-Role-Et-Utilisateur/gestion-permissions/gestion-permissions.component';
 import { ListeUtilisateursComponent } from './Gestion-role-et-utilisateur/gestion-utilisateur/liste-utilisateurs/liste-utilisateurs.component';
 import { AjouterDesUtilisateusComponent } from './Gestion-role-et-utilisateur/gestion-utilisateur/ajouter-des-utilisateus/ajouter-des-utilisateus.component';
 import { UpdateUserModalComponent } from './gestion-role-et-utilisateur/gestion-utilisateur/update-user-modal/update-user-modal.component';
@@ -54,8 +53,13 @@ import { ImpayeMilliardsChartComponent } from './risque-credit/analyse-portfeuil
 import { CreanceDouteuseEtProvisionChartComponent } from './risque-credit/analyse-portfeuille/creation-douteuse/creance-douteuse-et-provision-chart/creance-douteuse-et-provision-chart.component';
 import { ActionJusticeComponent } from './risque-credit/analyse-portfeuille/action-justice/action-justice.component';
 import { ListpermissionComponent } from './gestion-role-et-utilisateur/gestion-roles/listpermission/listpermission.component';
-import { AddPermissionToRoleComponent } from './gestion-role-et-utilisateur/gestion-roles/add-permission-to-role/add-permission-to-role.component';
 import { AddPermissionComponent } from './gestion-role-et-utilisateur/gestion-roles/add-permission/add-permission.component';
+import { AjouterAgenceComponent } from './gestion-role-et-utilisateur/gestion-utilisateur/ajouter-agence/ajouter-agence.component';
+import { ListAgencesComponent } from './gestion-role-et-utilisateur/gestion-utilisateur/list-agences/list-agences.component';
+import { AjouterNiveauComponent } from './gestion-role-et-utilisateur/gestion-roles/ajouter-niveau/ajouter-niveau.component';
+import { ListNiveauComponent } from './gestion-role-et-utilisateur/gestion-roles/list-niveau/list-niveau.component';
+import { UpdateAgenceComponent } from './gestion-role-et-utilisateur/gestion-utilisateur/update-agence/update-agence.component';
+import { UpdateNiveauComponent } from './gestion-role-et-utilisateur/gestion-roles/update-niveau/update-niveau.component';
 
 
 
@@ -92,7 +96,6 @@ import { AddPermissionComponent } from './gestion-role-et-utilisateur/gestion-ro
 
     GestionUtilisateurComponent,
     GestionRolesComponent,
-    GestionPermissionsComponent,
     ListeUtilisateursComponent,
     AjouterDesUtilisateusComponent,
     UpdateUserModalComponent,
@@ -105,8 +108,13 @@ import { AddPermissionComponent } from './gestion-role-et-utilisateur/gestion-ro
     ActionJusticeComponent,
     NavigationMenuComponent,
     ListpermissionComponent,
-    AddPermissionToRoleComponent,
-    AddPermissionComponent
+    AddPermissionComponent,
+    AjouterAgenceComponent,
+    ListAgencesComponent,
+    AjouterNiveauComponent,
+    ListNiveauComponent,
+    UpdateAgenceComponent,
+    UpdateNiveauComponent
 
   
   ],

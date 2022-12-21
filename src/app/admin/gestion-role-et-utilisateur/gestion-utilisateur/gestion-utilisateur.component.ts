@@ -7,20 +7,25 @@ import { Component, OnInit } from '@angular/core';
 export class GestionUtilisateurComponent implements OnInit {
   protected menuItems = [
     {
+      menuItem: 'Ajouter Des Utilisateurs',
+      path: 'AjouterDesUtilisateurs',
+      
+    },
+    {
       menuItem: 'List Des Utilisateurs',
       
       path: 'ListeUtilisateurs',
      
     },
     {
-      menuItem: 'Ajouter Des Utilisateurs',
-      path: 'AjouterDesUtilisateurs',
+      menuItem: 'Ajouter Des Agences',
+      path: 'AjouterDesAgences',
       
     },
     {
-      menuItem: "Affecter  roles a l'utilisateur ",
-      path: 'AffecterRoleUtilisateur/:id',
-
+      menuItem: 'List Agences',
+      path: 'ListAgences',
+      
     },
   ]
   constructor() { }

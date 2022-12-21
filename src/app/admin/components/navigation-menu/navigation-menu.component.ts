@@ -15,7 +15,6 @@ export class NavigationMenuComponent implements OnInit {
   constructor(private storage:StorageSService) { }
 
   ngOnInit(): void {
-    console.log(this.getItems())
   }
 
   getItems() {

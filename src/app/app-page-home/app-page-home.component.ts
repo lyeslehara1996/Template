@@ -43,11 +43,21 @@ export class AppPageHomeComponent implements OnInit {
       this.router.navigate(['/Home']);
       this.isLoggedIn===false
       this.isLoginFailed===true
-
-      
-   
     }
 
+
+
+    const togglePassword = document.querySelector("#visibilityLoginPassword");
+
+    const password = document.querySelector("#password");
+
+    togglePassword.addEventListener("click", function () {
+        // toggle the type attribute
+        const type = password.getAttribute("type") === "password" ? "text" : "password";
+        password.setAttribute("type", type);
+         this.classList.toggle("fa-eye-slash");
+      
+    });
   
   }
 
@@ -59,8 +69,8 @@ export class AppPageHomeComponent implements OnInit {
 
 this.submitted= true;
     
-    this.authService.Login(this.LoginForm.value['username'],this.LoginForm.value['password']).subscribe(
-      (Response:any)=>{
+    this.authService.Login(this.LoginForm.value['username'],this.LoginForm.value['password']).subscribe({
+    next:  (Response:any)=>{
         this.errorMessage = null
         this.isLoggedIn = true
         this.isLoginFailed = false
@@ -73,7 +83,7 @@ this.submitted= true;
         }
 
       },
-      (error)=>{
+    error:  (error)=>{
      
        this.errorMessage = error.error
         this.isLoginFailed = true;
@@ -82,7 +92,7 @@ this.submitted= true;
 
       
       }
-    )
+    } )
   }
 
 

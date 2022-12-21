@@ -27,7 +27,7 @@ export class AuthInterceptor implements HttpInterceptor {
       return next.handle(authReq).pipe(catchError(error => {
 
         let user = this.tokenService.getUser();
-        if (error instanceof HttpErrorResponse && !authReq.url.includes('auth/signin') && error.status === 403  || !user ) {
+        if (error instanceof HttpErrorResponse && !authReq.url.includes('auth/signin') && error.status === 403 ) {
                alert('Votre Session est terminé')  
                this.tokenService.signOut();
                this.router.navigateByUrl('/Home');

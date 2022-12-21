@@ -21,8 +21,8 @@ export class AnalysePortfeuilleComponent implements OnInit {
       path: 'Duration',
     },
     {
-      menuItem: 'Creation Duteuse',
-      path: 'CreationDuteuse',
+      menuItem: 'Creance Duteuse',
+      path: 'CreanceDuteuse',
     },
     {
       menuItem: 'Action De Recouverments',

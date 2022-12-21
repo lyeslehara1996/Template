@@ -46,8 +46,7 @@ export class NavbarComponent implements OnInit {
     this.listTitles = ROUTES.filter((listTitle) => listTitle);
     this.toggleButton = document.querySelector('.sidebarMenu')
     this.toggleButtonSubMenu = document.querySelector('.submenu')
-
-
+   
 
     this.router.events.subscribe((event) => {
       this.sidebarClose();
@@ -66,21 +65,26 @@ export class NavbarComponent implements OnInit {
   sidebar_SubmenuOpen() {
     const toggleButtonsubmenu = this.toggleButtonSubMenu;
     const body = document.querySelector('.left-sidebar');
-    setTimeout(function () {
-      toggleButtonsubmenu.classList.add("toggled");
-    }, 500);
-    body.classList.add("slide");
-    toggleButtonsubmenu.classList.add("silide")
-    this.sidebar_SubMenu_Visible = true;
+    if(body){
+      setTimeout(function () {
+        toggleButtonsubmenu.classList.add("toggled");
+      }, 500);
+      body.classList.add("slide");
+      toggleButtonsubmenu.classList.add("silide")
+      this.sidebar_SubMenu_Visible = true;
+    }
   }
 
 
   sidebar_SubmenuClose() {
     const body = document.querySelector('.left-sidebar');
-    this.toggleButtonSubMenu.classList.remove("toggled");
-    this.sidebar_SubMenu_Visible = false;
-        body.classList.remove("slide");
-        this.toggleButtonSubMenu.classList.remove("silide")
+    if(body){
+
+      this.toggleButtonSubMenu.classList.remove("toggled");
+      this.sidebar_SubMenu_Visible = false;
+          body.classList.remove("slide");
+          this.toggleButtonSubMenu.classList.remove("silide")
+    }
   }
 
 
@@ -113,20 +117,17 @@ export class NavbarComponent implements OnInit {
     body.classList.add("nav-open");
 
     this.sidebarVisible = true;
-    this.sidebar_SubMenu_Visible=false
 
     
   }
-
-  
-  
   sidebarClose() {
     const body = document.getElementsByTagName("body")[0];
     this.toggleButton.classList.remove("toggled");
     this.sidebarVisible = false;
-   this.sidebar_SubmenuClose()
+     this.sidebar_SubmenuClose()
     body.classList.remove("nav-open");
   }
+  
   sidebarToggle() {
     // const toggleButton = this.toggleButton;
     // const body = document.getElementsByTagName('body')[0];

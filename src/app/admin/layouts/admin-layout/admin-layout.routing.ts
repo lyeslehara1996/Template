@@ -1,11 +1,12 @@
-import { AddPermissionToRoleComponent } from './../../gestion-role-et-utilisateur/gestion-roles/add-permission-to-role/add-permission-to-role.component';
+import { ListNiveauComponent } from './../../gestion-role-et-utilisateur/gestion-roles/list-niveau/list-niveau.component';
+import { AjouterNiveauComponent } from './../../gestion-role-et-utilisateur/gestion-roles/ajouter-niveau/ajouter-niveau.component';
+import { ListAgencesComponent } from './../../gestion-role-et-utilisateur/gestion-utilisateur/list-agences/list-agences.component';
+import { AjouterAgenceComponent } from './../../gestion-role-et-utilisateur/gestion-utilisateur/ajouter-agence/ajouter-agence.component';
 import { AddPermissionComponent } from './../../gestion-role-et-utilisateur/gestion-roles/add-permission/add-permission.component';
 import { ListpermissionComponent } from './../../gestion-role-et-utilisateur/gestion-roles/listpermission/listpermission.component';
 import { ActionJusticeComponent } from './../../risque-credit/analyse-portfeuille/action-justice/action-justice.component';
 import { Routes } from "@angular/router";
-import { TableListComponent } from "../../table-list/table-list.component";
-import { TypographyComponent } from "../../typography/typography.component";
-import { NotificationsComponent } from "../../notifications/notifications.component";
+
 import { DashboardComponent } from "app/admin/dashboard/dashboard.component";
 import { AuthPermissionsGuard } from "app/_Guards/auth-permissions.guard";
 import { AnalysePortfeuilleComponent } from "app/admin/risque-credit/analyse-portfeuille/analyse-portfeuille.component";
@@ -21,7 +22,6 @@ import { ActionDeRecouvermentComponent } from "app/admin/risque-credit/analyse-p
 import { HasRoleGuard } from "app/_Guards/has-role.guard";
 import { GestionUtilisateurComponent } from "app/admin/gestion-Role-Et-Utilisateur/gestion-utilisateur/gestion-utilisateur.component";
 import { GestionRolesComponent } from "app/admin/gestion-Role-Et-Utilisateur/gestion-roles/gestion-roles.component";
-import { GestionPermissionsComponent } from "app/admin/gestion-Role-Et-Utilisateur/gestion-permissions/gestion-permissions.component";
 import { AnalysePortfeuilleInDirectComponent } from "app/admin/risque-credit/analyse-portfeuille/analyse-portfeuille-in-direct/analyse-portfeuille-in-direct.component";
 import { ListeUtilisateursComponent } from "app/admin/Gestion-role-et-utilisateur/gestion-utilisateur/liste-utilisateurs/liste-utilisateurs.component";
 import { AjouterDesUtilisateusComponent } from "app/admin/Gestion-role-et-utilisateur/gestion-utilisateur/ajouter-des-utilisateus/ajouter-des-utilisateus.component";
@@ -60,6 +60,14 @@ export const AdminLayoutRoutes: Routes = [
             path: "AjouterDesUtilisateurs",
             component: AjouterDesUtilisateusComponent,
           },
+          {
+            path: "AjouterDesAgences",
+            component: AjouterAgenceComponent,
+          },
+          {
+            path: "ListAgences",
+            component: ListAgencesComponent,
+          },
         
         ],
       },
@@ -68,34 +76,35 @@ export const AdminLayoutRoutes: Routes = [
         component: GestionRolesComponent,
         children: [
           {
+            path: "AjouterRole",
+            component: AjouterDesRolesComponent,
+          },
+          {
             path: "ListesRoles",
             component: ListsRolesComponent,
            
           },
-          {
-            path: "AjouterRole",
-            component: AjouterDesRolesComponent,
-          },
   
-          {
-            path: "ListPermissions",
-            component: ListpermissionComponent,
-          },
           {
             path: "ajouterDesPermissions",
             component: AddPermissionComponent,
           },
           {
-            path: "AjouterPermissionRole",
-            component: AddPermissionToRoleComponent,
+            path: "ListPermissions",
+            component: ListpermissionComponent,
+          },
+          {
+            path: "ajouterDesNiveauxRole",
+            component: AjouterNiveauComponent,
+          },
+          {
+            path: "ListNiveaux",
+            component: ListNiveauComponent,
           },
         
         ],
       },
-      {
-        path: "GestionDesPermission",
-        component: GestionPermissionsComponent,
-      },
+    
     ],
   },
   {
@@ -116,12 +125,12 @@ export const AdminLayoutRoutes: Routes = [
             component: PortefeuilIndirectComponent,
           },
           {
-            path: "Portfeuilledirect",
+            path: 'Portfeuilledirect',
             component: AnalysePortfeuilleDirectComponent,
-            canActivate : [AuthPermissionsGuard],  // to add permissions at route 
-            data :{
-              requiredPermission:['ConsulterUser']
-        },
+            // canActivate : [AuthPermissionsGuard],  // to add permissions at route 
+            // data :{
+            //   requiredPermission:['ConsulterUser']
+        // },
           },
           
           {
@@ -133,7 +142,7 @@ export const AdminLayoutRoutes: Routes = [
             component: DurationComponent,
           },
           {
-            path: "CreationDuteuse",
+            path: "CreanceDuteuse",
             component: CreationDouteuseComponent,
           },
           {

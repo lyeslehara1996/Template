@@ -29,7 +29,6 @@ export class UpdateUserModalComponent implements OnInit {
   
   public UpdateForm!: FormGroup;
   ngOnInit(): void {
-    console.log('initialized')
     this.UpdateForm = this.formBuilder.group({
       id: new FormControl(this.user?.id, [
         Validators.required,
@@ -93,7 +92,6 @@ export class UpdateUserModalComponent implements OnInit {
     this.userService.getAllAgence().pipe(
       map(
         data=>{
-          console.log(data);
        return ({dataState:DataStateEnum.LOADED,data:data}) 
         }),
       startWith({dataState:DataStateEnum.LOADING}),
@@ -120,11 +118,13 @@ save(event) {
   console.log(formData);
 
   
-  this.userService.UpdateUsers(this.user.id,formData).subscribe(data =>{
-    
+  this.userService.UpdateUsers(this.user.id,formData).subscribe({
+    next :() =>{
+    this.route.navigateByUrl("Admin/GestionUtilisateur/ListeUtilisateurs")
     alert("User Updated");    
     window.location.reload();
-  })
+  }
+})
 
 }
 

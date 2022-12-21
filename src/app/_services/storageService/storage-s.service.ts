@@ -54,10 +54,7 @@ export class StorageSService {
     if (user) {
       return JSON.parse(user);
     }
-    // else{
-    //   this.signOut();
-    //   this.route.navigateByUrl('/Home');
-    // }
+  
 
     return {};
   }

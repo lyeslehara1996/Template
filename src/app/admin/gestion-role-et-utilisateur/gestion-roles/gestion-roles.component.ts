@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,32 +10,37 @@ export class GestionRolesComponent implements OnInit {
 
   protected menuItems = [
     {
-      menuItem: 'Lists Des Roles',
+      menuItem: 'Lists des roles',
       path: 'ListesRoles',
      
     },
     {
-      menuItem: 'Ajouter Un Role',
+      menuItem: 'Ajouter un role',
       path: 'AjouterRole',
       
     },
     
     
     {
-      menuItem: "Liste Des Permissions",
+      menuItem: "Liste Des permissions",
       path: 'ListPermissions',
       
     },
     {
-      menuItem: "Ajouter des Permissions",
+      menuItem: "Ajouter des permissions",
       path: 'ajouterDesPermissions',
       
     },
     {
-      menuItem: 'Ajouter Une Permission a un Role',
-      path: 'AjouterPermissionRole',
+      menuItem: "Ajouter des niveaux",
+      path: 'ajouterDesNiveauxRole',
       
     },
+    {
+      menuItem: "Lists des niveaux",
+      path: 'ListNiveaux',
+      
+    }
   ]
 
 
@@ -42,5 +48,8 @@ export class GestionRolesComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
+  
 
 }

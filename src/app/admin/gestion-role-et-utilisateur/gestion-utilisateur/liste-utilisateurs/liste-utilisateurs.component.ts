@@ -44,7 +44,6 @@ export class ListeUtilisateursComponent implements OnInit {
     this.userService.getAllUsers().pipe(
       map(
         data=>{
-          console.log(data);
        return ({dataState:DataStateEnum.LOADED,data:data}) 
         }),
       startWith({dataState:DataStateEnum.LOADING}),
@@ -52,10 +51,7 @@ export class ListeUtilisateursComponent implements OnInit {
     );
 }
 
-onUpdateUser(user:AppUser){
-  this.route.navigate(['/Admin/GestionUtilisateur/ModifierDesUtilisateurs/'+user.id])
- 
-}
+
 
 
 onDeleteUser(user:AppUser){
@@ -67,7 +63,7 @@ onDeleteUser(user:AppUser){
   })
 }
 
-  update(event, p){
+  update( p){
     this.user = p
     this.updateUserModal.dispatchEvent(new Event('show.bs.modal', ))
     
@@ -75,10 +71,7 @@ onDeleteUser(user:AppUser){
     setTimeout(() => {
       this.updateUserModal.classList.add('show')
     }, 100);
-    
-    // document.querySelector('.update-user-modal').show()
-    // dispatchEvent(new Event('show.bs.modal'))
-    // console.log(p);
+  
     
   }
 }
